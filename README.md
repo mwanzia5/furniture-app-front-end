@@ -1,1 +1,0 @@
-# furniture-app-front-end
