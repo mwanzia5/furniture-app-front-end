@@ -1,3 +1,4 @@
+import Order from "./pages/checkout"
 
 // App.js
 import React from 'react';
@@ -14,6 +15,7 @@ import Home from './pages/Home';
 
 const App = () => {
   return (
+
     <div>
       <div>
         <Router>
@@ -37,6 +39,7 @@ const App = () => {
     </Router>
     </div>
   );
+
 }
 
 export default App;
