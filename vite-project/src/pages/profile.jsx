@@ -1,4 +1,4 @@
-import { Grid, Box, Badge, Spinner, Text } from "@chakra-ui/react";
+import { Grid, Box, Badge, Spinner, Text, Avatar } from "@chakra-ui/react";
 import React, { useEffect, useState } from "react";
 import { api } from "../assets/utils";
 
@@ -36,7 +36,8 @@ const Profile = () => {
       <h1>Profile🗿 </h1>
       {profiles.map((profile) => (
         <Grid key={profile.id}>
-          <Box maxW="sm" borderWidth="1px" borderRadius="lg" overflow="hidden">
+          <Box maxW="sm" borderWidth="1px" borderRadius="lg" overflow="hidden" display="flex">
+            <Avatar src={profile.avatarUrl} alt={profile.userName} size="xl" />
             <Box p="6">
               <Box display="flex" alignItems="baseline">
                 <Badge borderRadius="full" px="2" colorScheme="teal">
@@ -50,7 +51,7 @@ const Profile = () => {
                   textTransform="uppercase"
                   ml="2"
                 >
-                  {profile.email} beds &bull; {profile.role} baths
+                  {profile.email} &bull; {profile.role} 
                 </Box>
               </Box>
 
