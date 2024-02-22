@@ -1,21 +1,36 @@
-import { Grid, Box, Badge } from "@chakra-ui/react";
+import { Grid, Box, Badge, Spinner, Text } from "@chakra-ui/react";
 import React, { useEffect, useState } from "react";
 import { api } from "../assets/utils";
 
 const Profile = () => {
   const [profiles, setProfiles] = useState([]);
+  const [isLoading, setIsLoading] = useState(true);
+  const [error, setError] = useState(null);
 
   const fetchProfile = async () => {
     try {
       const response = await api.get("/users");
       setProfiles(response.data);
+      setIsLoading(false);
     } catch (error) {
-      console.error("Error fecthing profile", error);
+      console.error("Error fetching profile", error);
+      setError(error);
+      setIsLoading(false);
     }
   };
+
   useEffect(() => {
     fetchProfile();
   }, []);
+
+  if (isLoading) {
+    return <Spinner size="xl" />;
+  }
+
+  if (error) {
+    return <Text>Error fetching profiles. Please try again later.</Text>;
+  }
+
   return (
     <div>
       <h1>Profile🗿 </h1>
