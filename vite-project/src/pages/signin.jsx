@@ -43,7 +43,7 @@ function SignIn() {
           resetForm();
           localStorage.setItem("session", JSON.stringify(data));
           setIsAuthenticated(true);
-          navigate("/home");
+          navigate("/");
         }
       } catch (error) {
         toast.error("Unable to login. Please try again later.");
