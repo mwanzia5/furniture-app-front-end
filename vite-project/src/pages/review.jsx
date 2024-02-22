@@ -1,6 +1,6 @@
 import React from "react";
 import{useState,useEffect}from "react";
-import { Card ,Box,Flex,CardHeader,IconButton,Button,Avatar,Heading,CardBody} from "@chakra-ui/react";
+import { Card ,Box,Flex,CardHeader,IconButton,Button,Avatar,Heading,StarIcon} from "@chakra-ui/react";
 
 
 function ReviewList() {
@@ -18,6 +18,7 @@ function ReviewList() {
               <h1>nice couch i would love to come back again</h1>
               </div>
           </Box>
+          <StarIcon/>
         </Flex>
         <IconButton
           variant='ghost'
@@ -27,11 +28,6 @@ function ReviewList() {
         />
       </Flex>
     </CardHeader>
-    <CardBody>
-      
-        
-      
-    </CardBody>
     </Card>
   </div>
   )
