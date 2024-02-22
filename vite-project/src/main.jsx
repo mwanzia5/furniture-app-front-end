@@ -11,6 +11,6 @@ createRoot(document.getElementById('root')).render(
 
     <ChakraProvider>
     <App />
-    </ChakraProvider>
-  </React.StrictMode>
-);
+   </ ChakraProvider>
+  </React.StrictMode>,
+)
