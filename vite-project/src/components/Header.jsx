@@ -37,6 +37,14 @@ const Header = () => {
           variant="ghost"
         />
       </Flex>
+      <div>
+        <HStack spacing="4" justify="center" mt="2">
+          <Link href="/Home">HOME</Link>
+          <Link href="/Products">PRODUCTS</Link>
+          <Link href="/">CART</Link>
+          <Link href="/">SIGN IN</Link>
+        </HStack>
+      </div>
 
       <Box position="relative" overflow="hidden" height="600px">
         <Image
@@ -48,14 +56,7 @@ const Header = () => {
           transition="opacity 0.5s"
         />
       </Box>
-      <div>
-        <HStack spacing="4" justify="center" mt="2">
-          <Link href="/Home">HOME</Link>
-          <Link href="/#">PRODUCTS</Link>
-          <Link href="/#">CART</Link>
-          <Link href="/#">SIGN IN</Link>
-        </HStack>
-      </div>
+      
     </Box>
   );
 };

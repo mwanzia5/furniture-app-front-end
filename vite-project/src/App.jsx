@@ -11,6 +11,7 @@ import RefundPolicy from './pages/RefundPolicy';
 import ShippingPolicy from './pages/ShippingPolicy';
 import Header from './components/Header';
 import Home from './pages/Home';
+// import Items from "./pages/Products";
 
 
 
@@ -23,7 +24,7 @@ const App = () => {
           <Header />
           <Routes>
             <Route path="/Home" element={<Home />} />
-            
+            {/* <Route path="/pages/Products" element={<Items/>} /> */}
           </Routes>
         </Router>
       </div>
