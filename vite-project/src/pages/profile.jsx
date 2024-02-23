@@ -1,6 +1,6 @@
 import { Grid, Box, Badge, Spinner, Text, Avatar } from "@chakra-ui/react";
 import React, { useEffect, useState } from "react";
-import { api } from "../assets/utils";
+import { api} from "../assets/utils";
 
 const Profile = () => {
   const [profiles, setProfiles] = useState([]);
@@ -10,6 +10,7 @@ const Profile = () => {
   const fetchProfile = async () => {
     try {
       const response = await api.get("/users");
+      console.log (response.data);
       setProfiles(response.data);
       setIsLoading(false);
     } catch (error) {
@@ -37,11 +38,11 @@ const Profile = () => {
       {profiles.map((profile) => (
         <Grid key={profile.id}>
           <Box maxW="sm" borderWidth="1px" borderRadius="lg" overflow="hidden" display="flex">
-            <Avatar src={profile.avatarUrl} alt={profile.userName} size="xl" />
+            <Avatar src={profile.avatarUrl} alt={profile.username} size="xl" />
             <Box p="6">
               <Box display="flex" alignItems="baseline">
                 <Badge borderRadius="full" px="2" colorScheme="teal">
-                  {profile.userName}
+                  {profile.username}
                 </Badge>
                 <Box
                   color="gray.500"
@@ -51,7 +52,7 @@ const Profile = () => {
                   textTransform="uppercase"
                   ml="2"
                 >
-                  {profile.email} &bull; {profile.role} 
+                  {profile.email} 
                 </Box>
               </Box>
 
