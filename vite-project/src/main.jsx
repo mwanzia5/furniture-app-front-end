@@ -6,13 +6,8 @@ import ReviewList from  "./pages/review.jsx";
 //import  ChakraBaseProvider  from '@chakra-ui/react'
 import { ChakraProvider } from '@chakra-ui/react'
 
+ReactDOM.createRoot(document.getElementById('root')).render(
 
-
-
-
-
-
-createRoot(document.getElementById('root')).render(
   <React.StrictMode>
 
   <ChakraProvider>

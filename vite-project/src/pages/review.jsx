@@ -1,6 +1,7 @@
 import React from "react";
 import{useState,useEffect}from "react";
-import { Card ,Box,Flex,CardHeader,IconButton,Button,Avatar,Heading,StarIcon} from "@chakra-ui/react";
+import { Card ,Box,Flex,CardHeader,IconButton,Button,Avatar,Heading, CardBody} from "@chakra-ui/react";
+import Rating from 'react-rating-stars-component';
 
 
 function ReviewList() {
@@ -18,16 +19,24 @@ function ReviewList() {
               <h1>nice couch i would love to come back again</h1>
               </div>
           </Box>
-          <StarIcon/>
         </Flex>
-        <IconButton
-          variant='ghost'
-          colorScheme='gray'
-          aria-label='See menu'
-          icon={""}
-        />
+      
       </Flex>
     </CardHeader>
+    <CardBody>
+    <div>
+        <Rating
+      count={5} 
+      size={24} 
+      value={3} 
+      onChange={(newValue) => {
+        console.log(`Rated: ${newValue}`);
+      }}
+      activeColor="#ffd700" 
+    />
+        </div>
+        
+    </CardBody>
     </Card>
   </div>
   )
