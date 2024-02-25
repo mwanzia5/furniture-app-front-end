@@ -15,9 +15,9 @@ import { useNavigate } from "react-router-dom";
 import { AuthContext } from "../components/Auth";
 
 function SignupForm() {
-  const [showModal, setShowModal] = useState(true);
+  // const [showModal, setShowModal] = useState(true);
   const navigate = useNavigate();
-  const { setIsAuthenticated } = useContext(AuthContext);
+  // const { setIsAuthenticated } = useContext(AuthContext);
   const toast = useToast();
 
   const formik = useFormik({
@@ -42,13 +42,13 @@ function SignupForm() {
 
     onSubmit: async (values, { resetForm }) => {
       try {
-        const res = await api.post("register", values);
+        const res = await api.post("users", values);
         console.log(res);
         toast.success(res.data.message);
         resetForm();
         localStorage.setItem("session", JSON.stringify(res.data));
         setIsAuthenticated(true);
-        navigate("/");
+        navigate("/login");
         setShowModal(false);
       } catch (error) {
         const errorMessage =
@@ -203,7 +203,7 @@ function SignupForm() {
           boxShadow="0 3px hsl(154, 59%, 65%)"
           _hover={{ filter: "brightness(0.9)" }}
         >
-          Register
+          Sign Up
         </Button>
       </form>
     </Box>
