@@ -7,10 +7,31 @@ import RefundPolicy from './pages/RefundPolicy';
 import ShippingPolicy from './pages/ShippingPolicy';
 import Header from './components/Header';
 import Home from './pages/Home';
-// import ReviewList from "./pages/review";
+
+import SignIn from './pages/SignIn';
+import SignupForm from "./pages/SignUp";
+import Profile from "./pages/profile";
+
+
 
 const App = () => {
   return (
+
+    <div>
+      <div>
+        <Router>
+          <Header />
+          <Routes>
+            <Route path="/Home" element={<Home />} />
+            <Route path="/login" element={<SignIn />} />
+            <Route path="/signup" element={<SignupForm />} />
+            <Route path="/profile" element={<Profile />}  />
+            <Route path="/Orders" element={<Order />} />
+            
+          </Routes>
+        </Router>
+      </div>
+
     <Router>
       <div>
         <Header />
