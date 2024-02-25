@@ -40,9 +40,10 @@ const Header = () => {
       <div>
         <HStack spacing="4" justify="center" mt="2">
           <Link href="/Home">HOME</Link>
-          <Link href="/Products">PRODUCTS</Link>
+          <Link href="./Products">PRODUCTS</Link>
           <Link href="/">CART</Link>
           <Link href="/">SIGN IN</Link>
+          {/* <Link href="/review">REVIEWS</Link> */}
         </HStack>
       </div>
 
