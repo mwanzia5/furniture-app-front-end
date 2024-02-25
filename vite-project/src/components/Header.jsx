@@ -51,6 +51,7 @@ const Header = () => {
           variant="ghost"
         />
       </Flex>
+      
 
       <Box position="relative" overflow="hidden" height="600px">
         <Image
@@ -62,6 +63,7 @@ const Header = () => {
           transition="opacity 0.5s"
         />
       </Box>
+
       <div>
         <HStack spacing="4" justify="center" mt="2">
           <Link href="/Home">HOME</Link>
@@ -79,6 +81,7 @@ const Header = () => {
           )}
         </HStack>
       </div>
+
     </Box>
   );
 };
