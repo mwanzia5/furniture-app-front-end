@@ -53,6 +53,7 @@ const Header = () => {
           <Link href="/Home">HOME</Link>
           <Link href="/#">PRODUCTS</Link>
           <Link href="/#">CART</Link>
+          <Link href="/review">REVIEWS</Link>
           <Link href="/#">SIGN IN</Link>
         </HStack>
       </div>

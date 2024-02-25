@@ -10,7 +10,7 @@ import RefundPolicy from './pages/RefundPolicy';
 import ShippingPolicy from './pages/ShippingPolicy';
 import Header from './components/Header';
 import Home from './pages/Home';
-
+import ReviewList from "./pages/review";
 
 
 const App = () => {
@@ -22,7 +22,7 @@ const App = () => {
           <Header />
           <Routes>
             <Route path="/Home" element={<Home />} />
-            
+            <Route path="/review" element={<ReviewList />} />
           </Routes>
         </Router>
       </div>
@@ -34,6 +34,7 @@ const App = () => {
           <Route exact path="/FAQ" element={<FAQ />} />
           <Route exact path="/RefundPolicy" element={<RefundPolicy />} />
           <Route exact path="/ShippingPolicy" element={<ShippingPolicy />} />
+        
         </Routes>
       </div>
     </Router>
