@@ -1,7 +1,3 @@
-
-import Order from "./pages/checkout"
-
-// App.js
 import React from 'react';
 import { BrowserRouter as Router, Routes, Route } from 'react-router-dom';
 import Footer from './components/Footer';
@@ -11,25 +7,17 @@ import RefundPolicy from './pages/RefundPolicy';
 import ShippingPolicy from './pages/ShippingPolicy';
 import Header from './components/Header';
 import Home from './pages/Home';
-// import Items from "./pages/Products";
-
-
+// import ReviewList from "./pages/review";
 
 const App = () => {
   return (
-
-    <div>
-      <div>
-        <Router>
-          <Header />
-          <Routes>
-            <Route path="/Home" element={<Home />} />
-            {/* <Route path="/pages/Products" element={<Items/>} /> */}
-          </Routes>
-        </Router>
-      </div>
     <Router>
       <div>
+        <Header />
+        <Routes>
+          <Route path="/Home" element={<Home />} />
+          {/* <Route path="/review" element={<ReviewList />} /> */}
+        </Routes>
         <Footer />
         <Routes>
           <Route exact path="/AboutUs" element={<AboutUs />} />
@@ -39,9 +27,7 @@ const App = () => {
         </Routes>
       </div>
     </Router>
-    </div>
   );
-
 }
 
 export default App;
