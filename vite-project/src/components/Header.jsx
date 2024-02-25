@@ -68,6 +68,7 @@ const Header = () => {
         <HStack spacing="4" justify="center" mt="2">
           <Link href="/Home">HOME</Link>
           <Link href="/#">PRODUCTS</Link>
+<<<<<<< HEAD
           <Link href="/#">CART</Link> 
           <Link href="/signup"></Link>
           
@@ -79,6 +80,11 @@ const Header = () => {
           ) : (
             <Link href="/login">SIGN IN</Link>
           )}
+=======
+          <Link href="/#">CART</Link>
+          <Link href="/review">REVIEWS</Link>
+          <Link href="/#">SIGN IN</Link>
+>>>>>>> Reviews
         </HStack>
       </div>
 

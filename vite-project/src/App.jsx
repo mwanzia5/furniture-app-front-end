@@ -8,9 +8,13 @@ import ShippingPolicy from './pages/ShippingPolicy';
 import Header from './components/Header';
 import Home from './pages/Home';
 
+
 import SignIn from './pages/SignIn';
 import SignupForm from "./pages/SignUp";
 import Profile from "./pages/profile";
+
+
+import ReviewList from "./pages/review";
 
 
 
@@ -27,7 +31,8 @@ const App = () => {
             <Route path="/signup" element={<SignupForm />} />
             <Route path="/profile" element={<Profile />}  />
             <Route path="/Orders" element={<Order />} />
-            
+            <Route path="/review" element={<ReviewList />} />
+
           </Routes>
         </Router>
       </div>
@@ -45,9 +50,11 @@ const App = () => {
           <Route exact path="/FAQ" element={<FAQ />} />
           <Route exact path="/RefundPolicy" element={<RefundPolicy />} />
           <Route exact path="/ShippingPolicy" element={<ShippingPolicy />} />
+        
         </Routes>
       </div>
     </Router>
+    </div>
   );
 }
 

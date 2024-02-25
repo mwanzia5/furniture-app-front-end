@@ -10,7 +10,10 @@
     "preview": "vite preview"
   },
   "dependencies": {
+<<<<<<< HEAD
     "framer-motion": "^11.0.5",
+=======
+>>>>>>> Reviews
     "@chakra-ui/icons": "^2.1.1",
     "@chakra-ui/react": "^2.8.2",
     "@emotion/react": "^11.11.3",
@@ -20,6 +23,7 @@
     "date-fns": "^3.3.1",
     "dayjs": "^1.11.10",
     "formik": "^2.4.5",
+<<<<<<< HEAD
     "framer-motion": "^11.0.5",
     "jwt-decode": "^4.0.0",
     "react": "^18.2.0",
@@ -28,6 +32,13 @@
     "react-icons": "^5.0.1",
     "react-router-dom": "^6.22.1",
     "yup": "^1.3.3"
+=======
+    "framer-motion": "^11.0.6",
+    "react": "^18.2.0",
+    "react-dom": "^18.2.0",
+    "react-icons": "^5.0.1",
+    "react-rating-stars-component": "^2.2.0"
+>>>>>>> Reviews
   },
   "devDependencies": {
     "@types/react": "^18.2.55",
