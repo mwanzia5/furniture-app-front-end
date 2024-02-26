@@ -1,136 +1,124 @@
 import React, { useEffect, useState } from "react";
 import { api } from "../utils/utils";
 import {
-  Card,
-  Image,
-  AccordionItem,
-  AccordionButton,
-  AccordionIcon,
-  AccordionPanel,
-  Accordion,
-  Button,
-  Wrap,
-  Badge,
-  Box,
-  Grid,
-  GridItem,
-  Stack,
-  SimpleGrid,
-  Heading,
+ Image,
+ Stack,
+ Box,
+ Heading,
+ Text,
+ Button,
+ Divider,
+ Grid,
+ Input,
+ Accordion,
+ AccordionButton,
+ AccordionItem,
+ AccordionPanel,
+ AccordionIcon,
+ AspectRatio,
 } from "@chakra-ui/react";
+
 import SearchBar from "../components/SearchBar";
+
+import { FaSearch } from "react-icons/fa"
 
 
 const Items = () => {
-  const [products, setProducts] = useState([]);
-
-  const fetchProducts = async () => {
-    try {
-      const response = await api.get("/product");
-      setProducts(response.data);
-    } catch (error) {
-      console.error("Error fecthing products", error);
-    }
-  };
-
-  //   const deleteProduct = async (id) => {
-  //     try {
-  //       await api.delete(`/product/${id}`);
-  //       console.log("product deleted:", id);
-  //       setProducts(data.filter((product) => product.id !== id));
-  //     } catch (error) {
-  //       console.error("Error deleting product:", error);
-  //     }
-  //   };
-
-  useEffect(() => {
-    fetchProducts();
-  }, []);
+ const [products, setProducts] = useState([]);
+ const [searchTerm, setSearchTerm] = useState("");
 
 
-  return (
-    <div bg="blueviolet">
-      <Heading>Products Menu</Heading>
-      <div className="Search">
-        <div className="search-bar-container">
-          <SearchBar  />
-          {/* <div>SearchResults</div> */}
-        </div>
-      </div>
+ const fetchProducts = async () => {
+   try {
+     const response = await api.get("/product");
+     setProducts(response.data);
+   } catch (error) {
+     console.error("Error fetching products", error);
+   }
+ };
 
-      {products.map((product) => (
-        <Box
-          key={product.id}
-          maxW="sm"
-          borderWidth="1px"
-          borderRadius="lg"
-          overflow="hidden"
-        >
-          <Box>
-            <Image src={product.image_url} />
-          </Box>
 
-          <Box p="6">
-            <Box display="flex" alignItems="baseline">
-              <Badge borderRadius="full" px="2" colorScheme="teal">
-                New
-              </Badge>
-              <Box
-                color="gray.500"
-                fontWeight="semibold"
-                letterSpacing="wide"
-                fontSize="xs"
-                textTransform="uppercase"
-                ml="2"
-              >
-                {/* {property.beds} beds &bull; {property.baths} baths */}
+ useEffect(() => {
+   fetchProducts();
+ }, []);
+
+
+ const handleSearch = (event) => {
+   setSearchTerm(event.target.value);
+ };
+
+
+ const filteredProducts = products.filter((product) =>
+   product.title.toLowerCase().includes(searchTerm.toLowerCase())
+ );
+
+
+ return (
+   <div>
+     <h1 style={{ textAlign: "center", marginBottom: "20px" }}>Products Menu</h1>
+     <FaSearch />
+     <Input
+       type="text"
+       placeholder="Search products..."
+       value={searchTerm}
+       onChange={handleSearch}
+       mb={4}
+     />
+     <Grid templateColumns="repeat(auto-fill, minmax(250px, 1fr))" gap={4}>
+
+       {filteredProducts.map((product) => (
+         <Box
+           key={product.id}
+           borderWidth="1px"
+           borderRadius="lg"
+           overflow="hidden"
+           _hover={{ boxShadow: "xl" }}
+         >
+            <AspectRatio ratio={4 / 3}>
+
+           <Image src={product.image_url} borderRadius="lg" />
+           </AspectRatio>
+           <Stack p="4">
+             <Heading size="md">{product.title}</Heading>
+             <Box as="span" ml="2" color="gray.600" fontSize="sm">
+              <Accordion allowToggle>
+                <AccordionItem>
+                  <h2>
+                    <AccordionButton>
+                      <Box as="span" flex="1" textAlign="left">
+                        Description
+                      </Box>
+                      <AccordionIcon />
+                    </AccordionButton>
+                  </h2>
+                  <AccordionPanel pb={4}>
+                    {product.description}
+                  </AccordionPanel>
+                </AccordionItem>
+              </Accordion>
               </Box>
-            </Box>
-
-            <Box
-              mt="1"
-              fontWeight="semibold"
-              as="h4"
-              lineHeight="tight"
-              noOfLines={1}
-            >
-              {product.title}
-            </Box>
-
-            <Box>
-              $ {product.price}
-              <Box as="span" color="gray.600" fontSize="sm">
-                / on Offer
-              </Box>
-            </Box>
-
-            <Box display="flex" mt="2" alignItems="center">
-              <Box as="span" ml="2" color="gray.600" fontSize="sm">
-                <Accordion allowToggle>
-                  <AccordionItem>
-                    <h2>
-                      <AccordionButton>
-                        <Box as="span" flex="1" textAlign="left">
-                          Description
-                        </Box>
-                        <AccordionIcon />
-                      </AccordionButton>
-                    </h2>
-                    <AccordionPanel pb={4}>
-                      {product.description}
-                    </AccordionPanel>
-                  </AccordionItem>
-                </Accordion>
-                <Box>
-                  <Button colorScheme="blue">Order Now</Button>
-                </Box>
-              </Box>
-            </Box>
-          </Box>
-        </Box>
-      ))}
-    </div>
-  );
+             <Text color="blue.600" fontSize="2xl" fontWeight="bold">
+               $ {product.price}
+             </Text>
+             <Button
+               variant="solid"
+               colorScheme="blue"
+               mt="2"
+               _hover={{ bg: "blue.600" }}
+             >
+               Add to cart
+             </Button>
+           </Stack>
+           <Divider />
+         </Box>
+       ))}
+     </Grid>
+   </div>
+ );
 };
 
+
 export default Items;
+
+
+
