@@ -19,7 +19,7 @@ const Home = () => {
     }, []);
 // Navigate to the products page
     const handleViewProducts = () => {
-        window.location.href = '/pages/Products'; 
+        window.location.href = '/Products'; 
     };
 
     return (

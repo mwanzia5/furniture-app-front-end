@@ -1,7 +1,7 @@
 import React, { useEffect, useState } from "react";
 import "../components/searchBar.css";
 import { FaSearch } from "react-icons/fa";
-import { api } from "../utils/Utils";
+import { api } from "../assets/utils";
 import {
     Card,
     Image,
