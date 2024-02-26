@@ -1,5 +1,5 @@
 import React, { useEffect, useState } from "react";
-import { api } from "../utils/Utils";
+import { api } from "../utils/utils";
 import {
   Card,
   Image,
@@ -19,7 +19,7 @@ import {
   Heading,
 } from "@chakra-ui/react";
 import SearchBar from "../components/SearchBar";
-import "./product.css";
+
 
 const Items = () => {
   const [products, setProducts] = useState([]);

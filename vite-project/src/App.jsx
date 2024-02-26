@@ -12,9 +12,10 @@ import Home from './pages/Home';
 import SignIn from './pages/SignIn';
 import SignupForm from "./pages/SignUp";
 import Profile from "./pages/profile";
-
+import Order from "./pages/checkout";
 
 import ReviewList from "./pages/review";
+import Items from "./pages/products";
 
 
 
@@ -27,30 +28,26 @@ const App = () => {
           <Header />
           <Routes>
             <Route path="/Home" element={<Home />} />
+            <Route path="/products" element={<Items />} />
             <Route path="/login" element={<SignIn />} />
             <Route path="/signup" element={<SignupForm />} />
             <Route path="/profile" element={<Profile />}  />
-            <Route path="/Orders" element={<Order />} />
+            <Route path="/signin" element={<signIn />}  />
+            <Route path="/checkout" element={<Order />}  />
+            {/* <Route path="/Orders" element={<Order />} /> */}
             <Route path="/review" element={<ReviewList />} />
-
           </Routes>
         </Router>
       </div>
 
     <Router>
       <div>
-        <Header />
-        <Routes>
-          <Route path="/Home" element={<Home />} />
-          {/* <Route path="/review" element={<ReviewList />} /> */}
-        </Routes>
         <Footer />
         <Routes>
           <Route exact path="/AboutUs" element={<AboutUs />} />
           <Route exact path="/FAQ" element={<FAQ />} />
           <Route exact path="/RefundPolicy" element={<RefundPolicy />} />
           <Route exact path="/ShippingPolicy" element={<ShippingPolicy />} />
-        
         </Routes>
       </div>
     </Router>
