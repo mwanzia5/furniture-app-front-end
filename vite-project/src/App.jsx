@@ -7,6 +7,8 @@ import RefundPolicy from './pages/RefundPolicy';
 import ShippingPolicy from './pages/ShippingPolicy';
 import Header from './components/Header';
 import Home from './pages/Home';
+import Items from "./pages/products";
+
 
 
 import SignIn from './pages/SignIn';
@@ -27,6 +29,7 @@ const App = () => {
           <Header />
           <Routes>
             <Route path="/Home" element={<Home />} />
+            <Route path="/Products" element={<Items/>} />
             <Route path="/login" element={<SignIn />} />
             <Route path="/signup" element={<SignupForm />} />
             <Route path="/profile" element={<Profile />}  />
