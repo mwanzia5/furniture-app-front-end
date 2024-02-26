@@ -1,6 +1,5 @@
 import React, { useEffect, useState } from "react";
 import { api } from "../utils/utils";
-
 import {
  Image,
  Stack,
@@ -18,7 +17,10 @@ import {
  AccordionIcon,
  AspectRatio,
 } from "@chakra-ui/react";
-import { FaSearch } from "react-icons/fa";
+
+import SearchBar from "../components/SearchBar";
+
+import { FaSearch } from "react-icons/fa"
 
 
 const Items = () => {
