@@ -8,7 +8,7 @@ import {
   HStack,
   useColorMode,
   IconButton,
-  Avatar
+  Avatar,
 } from "@chakra-ui/react";
 import { MoonIcon, SunIcon } from "@chakra-ui/icons";
 import { AuthContext } from "./Auth";
@@ -51,26 +51,6 @@ const Header = () => {
           variant="ghost"
         />
       </Flex>
-      <div>
-      <HStack spacing="4" justify="center" mt="2">
-          <Link href="/Home">HOME</Link>
-          <Link href="/products">PRODUCTS</Link>
-          <Link href="/checkout">CART</Link> 
-          <Link href="/signup">SIGNUP</Link>
-          <Link href="/profile">PROFILE</Link>
-          {isAuthenticated ? (
-            <>
-             <Link to="/profile"><Avatar src='https://bit.ly/broken-link' /></Link>
-              <Link onClick={logout}>Logout</Link>
-            </>
-          ) : (
-            <Link href="/login">SIGN IN</Link>
-          )}
-         <Link href="/review">REVIEWS</Link>
-        </HStack>
-      </div>
-      
-
       <Box position="relative" overflow="hidden" height="600px">
         <Image
           src={images[currentImageIndex]}
@@ -81,8 +61,26 @@ const Header = () => {
           transition="opacity 0.5s"
         />
       </Box>
+      <div>
+        <HStack spacing="4" justify="center" mt="2">
+          <Link href="/Home">HOME</Link>
+          <Link href="/products">PRODUCTS</Link>
+          <Link href="/checkout">CART</Link>
+          <Link href="/signup">SIGN UP</Link>
+          <Link href="/review">REVIEWS</Link>
 
-     
+          {isAuthenticated ? (
+            <>
+              <Link href="/profile">
+                <Avatar src="https://bit.ly/broken-link" />
+              </Link>
+              <Link onClick={logout}>Logout</Link>
+            </>
+          ) : (
+            <Link href="/login">SIGN IN</Link>
+          )}
+        </HStack>
+      </div>
 
     </Box>
   );

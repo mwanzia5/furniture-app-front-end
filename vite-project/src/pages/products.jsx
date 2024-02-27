@@ -19,15 +19,11 @@ import {
 } from "@chakra-ui/react";
 
 import SearchBar from "../components/SearchBar";
-
 import { FaSearch } from "react-icons/fa"
-
 
 const Items = () => {
  const [products, setProducts] = useState([]);
  const [searchTerm, setSearchTerm] = useState("");
-
-
  const fetchProducts = async () => {
    try {
      const response = await api.get("/product");
@@ -117,8 +113,6 @@ const Items = () => {
  );
 };
 
-
 export default Items;
-
 
 
