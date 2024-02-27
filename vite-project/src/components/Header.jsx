@@ -14,7 +14,9 @@ import { MoonIcon, SunIcon } from "@chakra-ui/icons";
 import { AuthContext } from "./Auth";
 
 const Header = () => {
-  const { isAuthenticated, logout } = useContext(AuthContext);
+  const { isAuthenticated, logout, user } = useContext(AuthContext);
+  //console.log(user)
+
   const images = [
     "https://hips.hearstapps.com/hmg-prod/images/ghk070123homeminifeature-005-655b983d8bf5f.jpg?crop=1xw:0.9989583333333334xh;center,top&resize=980:*",
     "https://www.interior-essentials.com/wp-content/uploads/2021/07/InteriorEssentialsRoleOfFurnitureInteriorDesign.jpg",
@@ -50,6 +52,28 @@ const Header = () => {
           aria-label="Toggle Dark Mode"
           variant="ghost"
         />
+        <div>
+          <HStack spacing="4" justify="center" mt="2">
+            <Link href="/Home">HOME</Link>
+            <Link href="/products">PRODUCTS</Link>
+            <Link href="/checkout">CART</Link>
+            <Link href="/signup">SIGN UP</Link>
+            <Link href="/review">REVIEWS</Link>
+            
+
+            {isAuthenticated ? (
+              <>
+                <Link href="/profile"></Link>
+                  <Avatar src="https://bit.ly/broken-link" />
+                  <Link href="/pr">USERPROFILE</Link>
+                
+                <Link onClick={logout}>Logout</Link>
+              </>
+            ) : (
+              <Link href="/login">SIGN IN</Link>
+            )}
+          </HStack>
+        </div>
       </Flex>
       <Box position="relative" overflow="hidden" height="600px">
         <Image
@@ -61,27 +85,6 @@ const Header = () => {
           transition="opacity 0.5s"
         />
       </Box>
-      <div>
-        <HStack spacing="4" justify="center" mt="2">
-          <Link href="/Home">HOME</Link>
-          <Link href="/products">PRODUCTS</Link>
-          <Link href="/checkout">CART</Link>
-          <Link href="/signup">SIGN UP</Link>
-          <Link href="/review">REVIEWS</Link>
-
-          {isAuthenticated ? (
-            <>
-              <Link href="/profile">
-                <Avatar src="https://bit.ly/broken-link" />
-              </Link>
-              <Link onClick={logout}>Logout</Link>
-            </>
-          ) : (
-            <Link href="/login">SIGN IN</Link>
-          )}
-        </HStack>
-      </div>
-
     </Box>
   );
 };

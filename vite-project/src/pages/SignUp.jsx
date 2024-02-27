@@ -45,7 +45,7 @@ function SignupForm() {
 
     onSubmit: async (values, { resetForm }) => {
       try {
-        const res = await api.post("users", values);
+        const res = await api.post("users", {...values, role:"member"});
         console.log(res);
         toast.success(res.data.message);
         resetForm();
