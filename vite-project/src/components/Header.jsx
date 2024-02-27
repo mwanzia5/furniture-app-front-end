@@ -8,7 +8,7 @@ import {
   HStack,
   useColorMode,
   IconButton,
-  Avatar
+  Avatar,
 } from "@chakra-ui/react";
 import { MoonIcon, SunIcon } from "@chakra-ui/icons";
 import { AuthContext } from "./Auth";
@@ -51,7 +51,6 @@ const Header = () => {
           variant="ghost"
         />
       </Flex>
-      
 
       <Box position="relative" overflow="hidden" height="600px">
         <Image
@@ -67,13 +66,16 @@ const Header = () => {
       <div>
         <HStack spacing="4" justify="center" mt="2">
           <Link href="/Home">HOME</Link>
-          <Link href="/#">PRODUCTS</Link>
-          <Link href="/#">CART</Link> 
-          <Link href="/signup"></Link>
-          
+          <Link href="/products">PRODUCTS</Link>
+          <Link href="/checkout">CART</Link>
+          <Link href="/signup">SIGN UP</Link>
+
           {isAuthenticated ? (
             <>
-             <Link to="/profile"><Avatar src='https://bit.ly/broken-link' /></Link>
+              <Link href="/Dashboard">REVIEWS</Link>
+              <Link href="/profile">
+                <Avatar src="https://bit.ly/broken-link" />
+              </Link>
               <Link onClick={logout}>Logout</Link>
             </>
           ) : (
@@ -81,7 +83,6 @@ const Header = () => {
           )}
         </HStack>
       </div>
-
     </Box>
   );
 };

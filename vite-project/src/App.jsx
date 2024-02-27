@@ -7,10 +7,13 @@ import RefundPolicy from './pages/RefundPolicy';
 import ShippingPolicy from './pages/ShippingPolicy';
 import Header from './components/Header';
 import Home from './pages/Home';
-
 import SignIn from './pages/SignIn';
 import SignupForm from "./pages/SignUp";
-import Profile from "./pages/profile";
+import Order from './pages/checkout';
+import Items from './pages/products';
+import Dashboard from './pages/Dashboard';
+import Profile from './pages/Profile';
+//import ReviewList from './pages/review';
 
 
 
@@ -25,8 +28,11 @@ const App = () => {
             <Route path="/Home" element={<Home />} />
             <Route path="/login" element={<SignIn />} />
             <Route path="/signup" element={<SignupForm />} />
-            <Route path="/profile" element={<Profile />}  />
-            <Route path="/Orders" element={<Order />} />
+            <Route path="/Profile" element={<Profile />}  />
+            <Route path="/checkout" element={<Order />} /> 
+            <Route path="/Dashboard" element={<Dashboard />} />
+            {/* <Route path="/products" element={<Items />} /> */}
+            {/* <Route path="/reviews" element={<ReviewList />} /> */}
             
           </Routes>
         </Router>
@@ -34,11 +40,6 @@ const App = () => {
 
     <Router>
       <div>
-        <Header />
-        <Routes>
-          <Route path="/Home" element={<Home />} />
-          {/* <Route path="/review" element={<ReviewList />} /> */}
-        </Routes>
         <Footer />
         <Routes>
           <Route exact path="/AboutUs" element={<AboutUs />} />
@@ -48,6 +49,7 @@ const App = () => {
         </Routes>
       </div>
     </Router>
+    </div>
   );
 }
 

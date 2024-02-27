@@ -1,4 +1,4 @@
-import React, { createContext, useEffect, useState } from "react";
+import React, { createContext, useContext, useEffect, useState } from "react";
 import { jwtDecode } from "jwt-decode";
 import dayjs from "dayjs";
 
@@ -9,7 +9,6 @@ export const AuthContext = createContext({
   setIsAuthenticated: () => null,
   logout: () => null,
 });
-
 // AuthProvider component
 export const AuthProvider = ({ children }) => {
   const [isAuthenticated, setIsAuthenticated] = useState(false);
