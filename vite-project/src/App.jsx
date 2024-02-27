@@ -7,13 +7,18 @@ import RefundPolicy from './pages/RefundPolicy';
 import ShippingPolicy from './pages/ShippingPolicy';
 import Header from './components/Header';
 import Home from './pages/Home';
+import Items from "./pages/products";
+
+
+
 import SignIn from './pages/SignIn';
 import SignupForm from "./pages/SignUp";
-import Order from './pages/checkout';
-import Items from './pages/products';
-import Dashboard from './pages/Dashboard';
-import Profile from './pages/Profile';
-//import ReviewList from './pages/review';
+import Profile from "./pages/profile";
+import Order from "./pages/checkout";
+
+import ReviewList from "./pages/review";
+import Items from "./pages/products";
+
 
 
 
@@ -26,14 +31,15 @@ const App = () => {
           <Header />
           <Routes>
             <Route path="/Home" element={<Home />} />
+
+            <Route path="/Products" element={<Items/>} />
+
             <Route path="/login" element={<SignIn />} />
             <Route path="/signup" element={<SignupForm />} />
-            <Route path="/Profile" element={<Profile />}  />
-            <Route path="/checkout" element={<Order />} /> 
-            <Route path="/Dashboard" element={<Dashboard />} />
-            {/* <Route path="/products" element={<Items />} /> */}
-            {/* <Route path="/reviews" element={<ReviewList />} /> */}
-            
+            <Route path="/profile" element={<Profile />}  />
+            <Route path="/signin" element={<signIn />}  />
+            <Route path="/checkout" element={<Order />}  />
+            <Route path="/review" element={<ReviewList />} />
           </Routes>
         </Router>
       </div>

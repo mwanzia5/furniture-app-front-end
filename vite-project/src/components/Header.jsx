@@ -51,7 +51,6 @@ const Header = () => {
           variant="ghost"
         />
       </Flex>
-
       <Box position="relative" overflow="hidden" height="600px">
         <Image
           src={images[currentImageIndex]}
@@ -62,17 +61,16 @@ const Header = () => {
           transition="opacity 0.5s"
         />
       </Box>
-
       <div>
         <HStack spacing="4" justify="center" mt="2">
           <Link href="/Home">HOME</Link>
           <Link href="/products">PRODUCTS</Link>
           <Link href="/checkout">CART</Link>
           <Link href="/signup">SIGN UP</Link>
+          <Link href="/review">REVIEWS</Link>
 
           {isAuthenticated ? (
             <>
-              <Link href="/Dashboard">REVIEWS</Link>
               <Link href="/profile">
                 <Avatar src="https://bit.ly/broken-link" />
               </Link>
@@ -83,6 +81,7 @@ const Header = () => {
           )}
         </HStack>
       </div>
+
     </Box>
   );
 };
