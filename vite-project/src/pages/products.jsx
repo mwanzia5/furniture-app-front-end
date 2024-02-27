@@ -16,6 +16,7 @@ import {
  AccordionPanel,
  AccordionIcon,
  AspectRatio,
+ Link
 } from "@chakra-ui/react";
 
 import SearchBar from "../components/SearchBar";
@@ -102,7 +103,7 @@ const Items = () => {
                mt="2"
                _hover={{ bg: "blue.600" }}
              >
-               Add to cart
+              <Link href="/checkout">CART</Link> 
              </Button>
            </Stack>
            <Divider />

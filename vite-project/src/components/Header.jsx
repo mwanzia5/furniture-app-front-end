@@ -12,6 +12,7 @@ import {
 } from "@chakra-ui/react";
 import { MoonIcon, SunIcon } from "@chakra-ui/icons";
 import { AuthContext } from "./Auth";
+import { CgProfile } from "react-icons/cg";
 
 const Header = () => {
   const { isAuthenticated, logout, user } = useContext(AuthContext);
@@ -41,11 +42,12 @@ const Header = () => {
   }, []);
   return (
     <Box>
-      <Flex p="4" alignItems="center" justifyContent="space-between">
-        <Text fontSize="2xl" fontWeight="bold" textAlign="center">
-          Furniture Garden
-        </Text>
-        {/* Dark mode  */}
+    {/* <Flex p="4" alignItems="center" justifyContent="space-between"> */}
+      <Text fontSize="2xl" fontWeight="bold" textAlign="center">
+        Furniture Garden
+      </Text>
+      {/* Dark mode and Profile icon */}
+      <Flex alignItems="center">
         <IconButton
           icon={colorMode === "dark" ? <SunIcon /> : <MoonIcon />}
           onClick={toggleColorMode}
@@ -84,8 +86,10 @@ const Header = () => {
           height="100%"
           transition="opacity 0.5s"
         />
-      </Box>
+      
     </Box>
+  </Box>
+  
   );
 };
 

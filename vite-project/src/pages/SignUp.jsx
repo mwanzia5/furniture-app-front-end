@@ -12,10 +12,8 @@ import {
 import { FormControl, FormErrorMessage, useToast } from "@chakra-ui/react";
 import { useFormik } from "formik";
 import * as Yup from "yup";
-import toast, { Toaster } from 'react-hot-toast'
+import { api } from "../utils/utils";
 import { useNavigate } from "react-router-dom";
-import { AuthContext } from "../components/Auth";
-import { api } from '../utils/utils';
 
 function SignupForm() {
   // const [showModal, setShowModal] = useState(true);
