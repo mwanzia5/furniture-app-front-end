@@ -1,4 +1,4 @@
-import Order from "./pages/checkout"
+
 
 // App.js
 import React from 'react';
@@ -13,6 +13,7 @@ import Home from './pages/Home';
 
 
 
+
 const App = () => {
   return (
 
@@ -22,7 +23,8 @@ const App = () => {
           <Header />
           <Routes>
             <Route path="/Home" element={<Home />} />
-            
+           
+           
           </Routes>
         </Router>
       </div>
@@ -34,6 +36,7 @@ const App = () => {
           <Route exact path="/FAQ" element={<FAQ />} />
           <Route exact path="/RefundPolicy" element={<RefundPolicy />} />
           <Route exact path="/ShippingPolicy" element={<ShippingPolicy />} />
+          
         </Routes>
       </div>
     </Router>

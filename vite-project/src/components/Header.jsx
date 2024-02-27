@@ -1,6 +1,8 @@
 import React, { useState, useEffect } from 'react';
 import { Box, Flex, Text, Link, Image, HStack, useColorMode, IconButton } from '@chakra-ui/react'; 
-import { MoonIcon, SunIcon } from '@chakra-ui/icons'; 
+import { MoonIcon, SunIcon } from '@chakra-ui/icons';
+import Order from '../pages/checkout'; 
+import Item from '../pages/Products';
 
 const Header = () => {
   const images = [
@@ -51,7 +53,7 @@ const Header = () => {
       <div>
         <HStack spacing="4" justify="center" mt="2">
           <Link href="/Home">HOME</Link>
-          <Link href="/#">PRODUCTS</Link>
+          <Link href="/#" to='items'>PRODUCTS</Link>
           <Link href="/#">CART</Link>
           <Link href="/#">SIGN IN</Link>
         </HStack>
