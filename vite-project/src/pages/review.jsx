@@ -1,4 +1,5 @@
 import React, { useState, useEffect } from "react";
+
 import { Card, Box, Flex, CardHeader, Avatar, Heading, Input, Button } from "@chakra-ui/react";
 // import { StarIcon } from "@chakra-ui/icons";
 import { api } from '../utils/utils';
@@ -34,19 +35,27 @@ function ReviewList() {
 
 
  const handleSubmit = async (e) => {
-   e.preventDefault();
-   try {
-     const response = await api.post("/review", { text, rating });
-     const newReview = response.data;
-     // Update the state with the new review including the review_id
-     setReviews([...reviews, newReview]); // No need to destructure further
-     setText(""); // Clear the text input
-     setRating(0); // Reset the rating input
-   } catch (error) {
-     console.error("Error posting review:", error);
-     setError("Error posting review. Please try again later.");
-   }
- };
+  e.preventDefault();
+  
+    try {
+        const response = await  api.post("/review", {
+            method: 'POST',
+            headers: {
+                'Content-Type': 'application/json'
+            },
+            body: JSON.stringify({  rating, text })
+        });
+
+        if (!response.ok) {
+            throw new Error('Network response was not ok.');
+        }
+
+        const responseData = await response.json();
+        console.log(responseData);
+    } catch (error) {
+        console.error('There was a problem with your fetch operation:', error);
+    }
+};
 
 
  return (
@@ -101,7 +110,6 @@ function ReviewList() {
  );
 }
 
-
 export default ReviewList;
-
+ 
 
