@@ -21,6 +21,7 @@ import ReviewList from "./pages/review";
 
 
 
+
 const App = () => {
   return (
 
@@ -38,7 +39,6 @@ const App = () => {
             <Route path="/profile" element={<Profile />}  />
             <Route path="/signin" element={<signIn />}  />
             <Route path="/checkout" element={<Order />}  />
-            {/* <Route path="/Orders" element={<Order />} /> */}
             <Route path="/review" element={<ReviewList />} />
           </Routes>
         </Router>

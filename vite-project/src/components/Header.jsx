@@ -8,7 +8,7 @@ import {
   HStack,
   useColorMode,
   IconButton,
-  Avatar
+  Avatar,
 } from "@chakra-ui/react";
 import { MoonIcon, SunIcon } from "@chakra-ui/icons";
 import { AuthContext } from "./Auth";
@@ -54,6 +54,7 @@ const Header = () => {
         />
         <Link href="/profile" style={{ marginLeft: "8px" }}><CgProfile /></Link>
       </Flex>
+
     </Flex>
     <div>
       <HStack spacing="4" justify="center" mt="2">
@@ -81,6 +82,7 @@ const Header = () => {
         height="100%"
         transition="opacity 0.5s"
       />
+
     </Box>
   </Box>
   
