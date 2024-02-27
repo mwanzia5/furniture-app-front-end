@@ -12,6 +12,7 @@ import {
 } from "@chakra-ui/react";
 import { MoonIcon, SunIcon } from "@chakra-ui/icons";
 import { AuthContext } from "./Auth";
+import { CgProfile } from "react-icons/cg";
 
 const Header = () => {
   const { isAuthenticated, logout } = useContext(AuthContext);
@@ -39,52 +40,50 @@ const Header = () => {
   }, []);
   return (
     <Box>
-      <Flex p="4" alignItems="center" justifyContent="space-between">
-        <Text fontSize="2xl" fontWeight="bold" textAlign="center">
-          Furniture Garden
-        </Text>
-        {/* Dark mode  */}
+    <Flex p="4" alignItems="center" justifyContent="space-between">
+      <Text fontSize="2xl" fontWeight="bold" textAlign="center">
+        Furniture Garden
+      </Text>
+      {/* Dark mode and Profile icon */}
+      <Flex alignItems="center">
         <IconButton
           icon={colorMode === "dark" ? <SunIcon /> : <MoonIcon />}
           onClick={toggleColorMode}
           aria-label="Toggle Dark Mode"
           variant="ghost"
         />
+        <Link href="/profile" style={{ marginLeft: "8px" }}><CgProfile /></Link>
       </Flex>
-      <div>
+    </Flex>
+    <div>
       <HStack spacing="4" justify="center" mt="2">
-          <Link href="/Home">HOME</Link>
-          <Link href="/products">PRODUCTS</Link>
-          <Link href="/checkout">CART</Link> 
-          <Link href="/signup">SIGNUP</Link>
-          <Link href="/profile">PROFILE</Link>
-          {isAuthenticated ? (
-            <>
-             <Link to="/profile"><Avatar src='https://bit.ly/broken-link' /></Link>
-              <Link onClick={logout}>Logout</Link>
-            </>
-          ) : (
-            <Link href="/login">SIGN IN</Link>
-          )}
-         <Link href="/review">REVIEWS</Link>
-        </HStack>
-      </div>
-      
-
-      <Box position="relative" overflow="hidden" height="600px">
-        <Image
-          src={images[currentImageIndex]}
-          alt={`Image ${currentImageIndex + 1}`}
-          objectFit="cover"
-          width="100%"
-          height="100%"
-          transition="opacity 0.5s"
-        />
-      </Box>
-
-     
-
+        <Link href="/Home">HOME</Link>
+        <Link href="/products">PRODUCTS</Link>
+        <Link href="/checkout">CART</Link> 
+        <Link href="/signup">SIGNUP</Link>
+        {isAuthenticated ? (
+          <>
+            <Link to="/profile"><Avatar src='https://bit.ly/broken-link' /></Link>
+            <Link onClick={logout}>Logout</Link>
+          </>
+        ) : (
+          <Link href="/login">SIGN IN</Link>
+        )}
+        <Link href="/review">REVIEWS</Link>
+      </HStack>
+    </div>
+    <Box position="relative" overflow="hidden" height="600px">
+      <Image
+        src={images[currentImageIndex]}
+        alt={`Image ${currentImageIndex + 1}`}
+        objectFit="cover"
+        width="100%"
+        height="100%"
+        transition="opacity 0.5s"
+      />
     </Box>
+  </Box>
+  
   );
 };
 
