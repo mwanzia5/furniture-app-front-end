@@ -1,6 +1,7 @@
 import { useFormik } from "formik";
-import toast from "react-hot-toast";
+import  { Toaster, toast } from "react-hot-toast";
 import { Link, useNavigate } from "react-router-dom";
+import { useContext } from "react";
 import {
   Box,
   Button,
@@ -9,14 +10,15 @@ import {
   FormControl,
   FormLabel,
   Input,
+  Toast,
   VStack,
 } from "@chakra-ui/react";
-import { BASE_URL } from "../assets/utils";
-import { User } from "../components/Auth";
+import { api } from "../utils/utils";
+import { AuthContext } from "../components/Auth";
 
 function SignIn() {
   const navigate = useNavigate();
-  const { setIsAuthenticated } = useContext(User);
+  const { setIsAuthenticated } = useContext(AuthContext);
   const formik = useFormik({
     initialValues: {
       email: "",
@@ -25,30 +27,22 @@ function SignIn() {
     },
     onSubmit: async (values, { resetForm }) => {
       try {
-        const res = await fetch(`${BASE_URL}/login`, {
-          method: "POST",
-          headers: {
-            "Content-Type": "application/json",
-          },
-          body: JSON.stringify(values),
-        });
-
-        const data = await res.json();
+        const data =await api.post('/login', values);
         console.log(data);
+        toast.success(data.data.message);
+        setIsAuthenticated(true)
+        
+        resetForm()
 
-        if (data.status === "fail") {
-          toast.error(data.message);
-          } else if (data.status === "success") {
-          toast.success(data.message);
-          resetForm();
-          localStorage.setItem("session", JSON.stringify(data));
-          setIsAuthenticated(true);
-          navigate("/");
-        }
+        localStorage.setItem("session", JSON.stringify(data));
+         setIsAuthenticated(true);
+           navigate("/Home");
       } catch (error) {
-        toast.error("Unable to login. Please try again later.");
+        const data = error.response.data;
+        toast.error(data.message)
+        console.log('Unable to login')
       }
-      
+     
     },
   });
 
@@ -56,6 +50,7 @@ function SignIn() {
     <Flex bg="gray.100" align="center" justify="center" h="100vh">
       <Box bg="white" p={6} rounded="md">
         <form onSubmit={formik.handleSubmit}>
+          < Toaster position="top-right"/>
           <VStack spacing={4} align="flex-start">
             <FormControl>
               <FormLabel htmlFor="email">Email Address</FormLabel>
@@ -91,7 +86,7 @@ function SignIn() {
             <Button type="submit">Login</Button>
         <p>
           Dont have an account?
-          <Link to="/sign-up">Signup</Link>
+          <Link to="/signup">Signup</Link>
         </p>
           </VStack>
         </form>

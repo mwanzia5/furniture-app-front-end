@@ -1,3 +1,5 @@
+import React, { useState, useContext } from 'react'; 
+
 import {
   Box,
   Button,
@@ -10,15 +12,20 @@ import {
 import { FormControl, FormErrorMessage, useToast } from "@chakra-ui/react";
 import { useFormik } from "formik";
 import * as Yup from "yup";
+<<<<<<< HEAD
 import { api } from "../utils/utils";
+=======
+import toast, { Toaster } from 'react-hot-toast'
+>>>>>>> 9da14abdd00504a1de5a2683a79e4f1e5aafb718
 import { useNavigate } from "react-router-dom";
 import { AuthContext } from "../components/Auth";
+import { api } from '../utils/utils';
 
 function SignupForm() {
-  const [showModal, setShowModal] = useState(true);
+  // const [showModal, setShowModal] = useState(true);
   const navigate = useNavigate();
-  const { setIsAuthenticated } = useContext(AuthContext);
-  const toast = useToast();
+  // const { setIsAuthenticated } = useContext(AuthContext);
+  //const toast = useToast();
 
   const formik = useFormik({
     initialValues: {
@@ -42,13 +49,13 @@ function SignupForm() {
 
     onSubmit: async (values, { resetForm }) => {
       try {
-        const res = await api.post("register", values);
+        const res = await api.post("users", values);
         console.log(res);
         toast.success(res.data.message);
         resetForm();
         localStorage.setItem("session", JSON.stringify(res.data));
         setIsAuthenticated(true);
-        navigate("/");
+        navigate("/login");
         setShowModal(false);
       } catch (error) {
         const errorMessage =
@@ -62,6 +69,7 @@ function SignupForm() {
   return (
     <Box bg="white" w="50%" p={8} borderRadius="lg">
       <form autoComplete="off" onSubmit={formik.handleSubmit}>
+      < Toaster position="top-right"/>
         <FormControl
           isInvalid={formik.touched.username && formik.errors.username}
           mb={5}
@@ -203,7 +211,7 @@ function SignupForm() {
           boxShadow="0 3px hsl(154, 59%, 65%)"
           _hover={{ filter: "brightness(0.9)" }}
         >
-          Register
+          Sign Up
         </Button>
       </form>
     </Box>
