@@ -12,7 +12,11 @@ import {
 import { FormControl, FormErrorMessage, useToast } from "@chakra-ui/react";
 import { useFormik } from "formik";
 import * as Yup from "yup";
+<<<<<<< HEAD
+import { api } from "../utils/utils";
+=======
 import toast, { Toaster } from 'react-hot-toast'
+>>>>>>> 9da14abdd00504a1de5a2683a79e4f1e5aafb718
 import { useNavigate } from "react-router-dom";
 import { AuthContext } from "../components/Auth";
 import { api } from '../utils/utils';
