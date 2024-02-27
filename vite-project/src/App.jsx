@@ -17,7 +17,7 @@ import Profile from "./pages/profile";
 import Order from "./pages/checkout";
 
 import ReviewList from "./pages/review";
-import Items from "./pages/products";
+;
 
 
 
