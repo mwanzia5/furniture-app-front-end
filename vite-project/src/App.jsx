@@ -12,15 +12,8 @@ import SignIn from "./pages/SignIn";
 import SignupForm from "./pages/SignUp";
 import Order from "./pages/checkout";
 import ReviewList from "./pages/review";
-<<<<<<< HEAD
 import Profile from "./pages/Profile";
 import UserProfile from "./pages/Pr";
-=======
-;
-
-
-
->>>>>>> origin
 
 const App = () => {
   return (
