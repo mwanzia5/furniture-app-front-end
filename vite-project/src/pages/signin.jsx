@@ -1,5 +1,5 @@
 import { useFormik } from "formik";
-import  { Toaster, toast } from "react-hot-toast";
+import { Toaster, toast } from "react-hot-toast";
 import { Link, useNavigate } from "react-router-dom";
 import { useContext } from "react";
 import {
@@ -18,7 +18,7 @@ import { AuthContext } from "../components/Auth";
 
 function SignIn() {
   const navigate = useNavigate();
-  const { setIsAuthenticated } = useContext(AuthContext);
+  const { setIsAuthenticated, setUser, setCredentials } = useContext(AuthContext);
   const formik = useFormik({
     initialValues: {
       email: "",
@@ -27,22 +27,22 @@ function SignIn() {
     },
     onSubmit: async (values, { resetForm }) => {
       try {
-        const data =await api.post('/login', values);
+        const data = await api.post("/login", values);
         console.log(data);
         toast.success(data.data.message);
-        setIsAuthenticated(true)
-        
-        resetForm()
+        setIsAuthenticated(true);
+        setUser(data.data.user);
+        //setCredentials(JSON.stringify(data.data))
 
-        localStorage.setItem("session", JSON.stringify(data));
-         setIsAuthenticated(true);
-           navigate("/Home");
+        resetForm();
+
+        // localStorage.setItem("session", JSON.stringify(data.data));
+        // setIsAuthenticated(true);
+        navigate("/Home");
       } catch (error) {
         const data = error.response.data;
-        toast.error(data.message)
-        console.log('Unable to login')
+        toast.error(data.message);
       }
-     
     },
   });
 
@@ -50,7 +50,7 @@ function SignIn() {
     <Flex bg="gray.100" align="center" justify="center" h="100vh">
       <Box bg="white" p={6} rounded="md">
         <form onSubmit={formik.handleSubmit}>
-          < Toaster position="top-right"/>
+          <Toaster position="top-right" />
           <VStack spacing={4} align="flex-start">
             <FormControl>
               <FormLabel htmlFor="email">Email Address</FormLabel>
@@ -84,10 +84,10 @@ function SignIn() {
               Remember me?
             </Checkbox>
             <Button type="submit">Login</Button>
-        <p>
-          Dont have an account?
-          <Link to="/signup">Signup</Link>
-        </p>
+            <p>
+              Dont have an account?
+              <Link to="/signup">Signup</Link>
+            </p>
           </VStack>
         </form>
       </Box>
