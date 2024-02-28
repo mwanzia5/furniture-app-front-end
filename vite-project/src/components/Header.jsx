@@ -1,3 +1,10 @@
+
+// import React, { useState, useEffect } from 'react';
+// import { Box, Flex, Text, Link, Image, HStack, useColorMode, IconButton } from '@chakra-ui/react'; 
+// import { MoonIcon, SunIcon } from '@chakra-ui/icons';
+// import Order from '../pages/checkout'; 
+// import Item from '../pages/Products';
+
 import React, { useState, useEffect, useContext } from "react";
 import {
   Box,
@@ -13,6 +20,7 @@ import {
 import { MoonIcon, SunIcon } from "@chakra-ui/icons";
 import { AuthContext } from "./Auth";
 import { CgProfile } from "react-icons/cg";
+
 
 const Header = () => {
   const { isAuthenticated, logout, user } = useContext(AuthContext);
@@ -86,7 +94,36 @@ const Header = () => {
           height="100%"
           transition="opacity 0.5s"
         />
-      
+<
+      </Box>
+      <div>
+        <HStack spacing="4" justify="center" mt="2">
+          <Link href="/Home">HOME</Link>
+
+          <Link href="/#" to='items'>PRODUCTS</Link>
+          <Link href="/#">CART</Link>
+          <Link href="/#">SIGN IN</Link>
+
+          <Link href="/products">PRODUCTS</Link>
+          <Link href="/checkout">CART</Link>
+          <Link href="/signup">SIGN UP</Link>
+          <Link href="/review">REVIEWS</Link>
+
+          {isAuthenticated ? (
+            <>
+              <Link href="/profile">
+                <Avatar src="https://bit.ly/broken-link" />
+              </Link>
+              <Link onClick={logout}>Logout</Link>
+            </>
+          ) : (
+            <Link href="/login">SIGN IN</Link>
+          )}
+
+        </HStack>
+      </div>
+
+
     </Box>
   </Box>
   
