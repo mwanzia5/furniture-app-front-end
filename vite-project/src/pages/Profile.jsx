@@ -1,55 +1,34 @@
+// UserProfile.jsx
 import {
   Grid,
   Box,
   Badge,
-  Spinner,
   Text,
-  Avatar,
   Flex,
-  Icon,
 } from "@chakra-ui/react";
 import { EmailIcon, PhoneIcon, TimeIcon } from "@chakra-ui/icons";
-import React, { useContext, useEffect, useState } from "react";
+import React, { useState, useEffect } from "react";
 import { api } from "../utils/utils";
-import { AuthContext } from "../components/Auth";
 
 const Profile = () => {
-  const { isAuthenticated, logout, user } = useContext(AuthContext);
-  console.log(user);
-  const [profiles, setProfiles] = useState([]);
-  const [isLoading, setIsLoading] = useState(true);
-  const [error, setError] = useState(null);
+  const [userData, setUserData] = useState([]);
 
-  const fetchProfile = async () => {
+  const fetchUserData = async () => {
     try {
-      // Ensure that user is defined and has an id property
-      if (user && user.id) {
-        const response = await api.get(`/users/${user.id}`);
-        setProfiles([response.data]);
-        setIsLoading(false);
+      const response = await api.get("/users");
+      if (response.ok) {
+        //const data = response;
+        setUserData(response);
       } else {
-        console.error("User or user id is not available");
-        setError(new Error("User or user id is not available"));
-        setIsLoading(false);
       }
     } catch (error) {
-      console.error("Error fetching profile", error);
-      setError(error);
-      setIsLoading(false);
+      console.error("Error fetching user data:", error);
     }
   };
 
   useEffect(() => {
-    fetchProfile();
+    fetchUserData();
   }, []);
-
-  if (isLoading) {
-    return <Spinner size="xl" />;
-  }
-
-  if (error) {
-    return <Text>Error fetching profiles. Please try again later.</Text>;
-  }
 
   return (
     <div>
@@ -64,18 +43,18 @@ const Profile = () => {
         Your profile
       </h1>
       <Grid gap={6} templateColumns="repeat(auto-fit, minmax(300px, 1fr))">
-        {profiles.map((profile) => (
+        {userData.map((user) => (
           <Box
-            key={profile.id}
+            key={user.id}
             borderWidth="1px"
             borderRadius="lg"
             overflow="hidden"
             boxShadow="md"
           >
-            <Avatar src={profile.avatarUrl} alt={profile.username} size="xl" />
+            {/* <Avatar src={profile.avatarUrl} alt={user.username} size="xl" /> */}
             <Box p="6">
               <Badge borderRadius="full" px="2" colorScheme="teal">
-                {profile.username}
+                {user.username}
               </Badge>
               <Flex alignItems="center" mt="2">
                 <EmailIcon mr="2" />
@@ -85,7 +64,7 @@ const Profile = () => {
                   lineHeight="tight"
                   color="gray.600"
                 >
-                  {profile.email}
+                  {user.email}
                 </Text>
               </Flex>
               <Flex alignItems="center" mt="2">
@@ -96,7 +75,7 @@ const Profile = () => {
                   lineHeight="tight"
                   color="gray.600"
                 >
-                  {profile.phone_number}
+                  {user.phone_number}
                 </Text>
               </Flex>
               <Flex alignItems="center" mt="2">
@@ -107,7 +86,7 @@ const Profile = () => {
                   lineHeight="tight"
                   color="gray.600"
                 >
-                  Created At: {profile.created_at}
+                  Created At: {user.created_at}
                 </Text>
               </Flex>
             </Box>

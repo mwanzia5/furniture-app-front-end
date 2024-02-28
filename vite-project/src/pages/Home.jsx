@@ -13,7 +13,7 @@ const Home = () => {
             console.error('Error fetching categories:', error);
         }
     };
-
+//margin on carousel
     useEffect(() => {
         fetchCategories();
     }, []);
