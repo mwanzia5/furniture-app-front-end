@@ -66,7 +66,7 @@ const Header = () => {
           <HStack spacing="4" justify="center" mt="2">
             <Link href="/Home">HOME</Link>
             <Link href="/products">PRODUCTS</Link>
-            <Link href="/checkout">CART</Link>
+            {/* <Link href="/checkout">CART</Link> */}
             <Link href="/signup">SIGN UP</Link>
             <Link href="/review">REVIEWS</Link>
             
