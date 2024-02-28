@@ -12,9 +12,9 @@ import Items from "./pages/products";
 import SignupForm from "./pages/SignUp";
 import Order from "./pages/checkout";
 import ReviewList from "./pages/review";
-import SignIn from "./pages/signin";
 import Profile from "./pages/Profile";
 import Home from "./pages/Home";
+import SignIn from "./pages/SignIn";
 
 ;
 
@@ -23,24 +23,6 @@ import Home from "./pages/Home";
 
 const App = () => {
   return (
-
-
-    <div>
-      <div>
-        <Router>
-          <Header />
-          <Routes>
-            <Route path="/Home" element={<Home />} />
-            <Route path="/login" element={<SignIn />} />
-            <Route path="/signup" element={<SignupForm />} />
-            <Route path="/profile" element={<Profile />}  />
-            {/* <Route path="/Orders" element={<Order />} /> */}
-            <Route path="/review" element={<ReviewList />} />
-
-          </Routes>
-        </Router>
-      </div>
-
 
     <Router>
       <Header />
@@ -61,7 +43,6 @@ const App = () => {
       <Footer />
 
     </Router>
-    </div>
   );
 };
 

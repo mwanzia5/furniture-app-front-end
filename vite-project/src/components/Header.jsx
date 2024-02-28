@@ -96,31 +96,6 @@ const Header = () => {
         />
 
       </Box>
-      <div>
-        <HStack spacing="4" justify="center" mt="2">
-          <Link href="/Home">HOME</Link>
-          <Link href="/#">PRODUCTS</Link>
-          <Link href="/#">CART</Link> 
-          <Link href="/signup"></Link>
-          
-          {isAuthenticated ? (
-            <>
-              <Link href="/profile">
-                <Avatar src="https://bit.ly/broken-link" />
-              </Link>
-              <Link onClick={logout}>Logout</Link>
-            </>
-          ) : (
-            <Link href="/login">SIGN IN</Link>
-          )}
-
-          <Link href="/#">CART</Link>
-          <Link href="/review">REVIEWS</Link>
-          <Link href="/#">SIGN IN</Link>
-
-        </HStack>
-      </div>
-
 
     </Box>
   
