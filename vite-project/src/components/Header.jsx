@@ -52,23 +52,10 @@ const Header = () => {
         />
       </Flex>
       
-
-      <Box position="relative" overflow="hidden" height="600px">
-        <Image
-          src={images[currentImageIndex]}
-          alt={`Image ${currentImageIndex + 1}`}
-          objectFit="cover"
-          width="100%"
-          height="100%"
-          transition="opacity 0.5s"
-        />
-      </Box>
-
       <div>
         <HStack spacing="4" justify="center" mt="2">
           <Link href="/Home">HOME</Link>
-          <Link href="/#">PRODUCTS</Link>
-<<<<<<< HEAD
+          <Link href="/products">PRODUCTS</Link>
           <Link href="/#">CART</Link> 
           <Link href="/signup"></Link>
           
@@ -80,13 +67,22 @@ const Header = () => {
           ) : (
             <Link href="/login">SIGN IN</Link>
           )}
-=======
           <Link href="/#">CART</Link>
           <Link href="/review">REVIEWS</Link>
           <Link href="/#">SIGN IN</Link>
->>>>>>> Reviews
         </HStack>
       </div>
+
+      <Box position="relative" overflow="hidden" height="600px">
+        <Image
+          src={images[currentImageIndex]}
+          alt={`Image ${currentImageIndex + 1}`}
+          objectFit="cover"
+          width="100%"
+          height="100%"
+          transition="opacity 0.5s"
+        />
+      </Box>
 
     </Box>
   );
