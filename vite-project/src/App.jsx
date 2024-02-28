@@ -1,3 +1,5 @@
+
+
 import React from "react";
 import { BrowserRouter as Router, Routes, Route } from "react-router-dom";
 import Footer from "./components/Footer";
@@ -12,18 +14,19 @@ import SignIn from "./pages/SignIn";
 import SignupForm from "./pages/SignUp";
 import Order from "./pages/checkout";
 import ReviewList from "./pages/review";
-<<<<<<< HEAD
+
 import Profile from "./pages/Profile";
 import UserProfile from "./pages/Pr";
-=======
+
 ;
 
 
 
->>>>>>> origin
+
 
 const App = () => {
   return (
+
     <Router>
       <Header />
       <Routes>
@@ -45,6 +48,7 @@ const App = () => {
         <Route exact path="/ShippingPolicy" element={<ShippingPolicy />} />
       </Routes>
       <Footer />
+
     </Router>
   );
 };
