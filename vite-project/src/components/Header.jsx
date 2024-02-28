@@ -56,37 +56,40 @@ const Header = () => {
           aria-label="Toggle Dark Mode"
           variant="ghost"
         />
-
-      
       </Flex>
-    </Flex>
-    <div>
-      <HStack spacing="4" justify="center" mt="2">
-        <Link href="/Home">HOME</Link>
-        <Link href="/products">PRODUCTS</Link>
-        <Link href="/checkout">CART</Link> 
-        <Link href="/AdminPage">admin</Link> 
-        <Link href="/signup">SIGNUP</Link>
-        {isAuthenticated ? (
-          <>
-            <Link to="/profile"><Avatar src='https://bit.ly/broken-link' /></Link>
-            <Link onClick={logout}>Logout</Link>
-          </>
-        ) : (
-          <Link href="/login">SIGN IN</Link>
-        )}
-        <Link href="/review">REVIEWS</Link>
-      </HStack>
-    </div>
-    <Box position="relative" overflow="hidden" height="600px">
-      <Image
-        src={images[currentImageIndex]}
-        alt={`Image ${currentImageIndex + 1}`}
-        objectFit="cover"
-        width="100%"
-        height="100%"
-        transition="opacity 0.5s"
-      />
+      
+      <div>
+        <HStack spacing="4" justify="center" mt="2">
+          <Link href="/Home">HOME</Link>
+          <Link href="/products">PRODUCTS</Link>
+          <Link href="/#">CART</Link> 
+          <Link href="/signup"></Link>
+          
+          {isAuthenticated ? (
+            <>
+             <Link to="/profile"><Avatar src='https://bit.ly/broken-link' /></Link>
+              <Link onClick={logout}>Logout</Link>
+            </>
+          ) : (
+            <Link href="/login">SIGN IN</Link>
+          )}
+          <Link href="/#">CART</Link>
+          <Link href="/review">REVIEWS</Link>
+          <Link href="/#">SIGN IN</Link>
+        </HStack>
+      </div>
+
+
+      <Box position="relative" overflow="hidden" height="600px">
+        <Image
+          src={images[currentImageIndex]}
+          alt={`Image ${currentImageIndex + 1}`}
+          objectFit="cover"
+          width="100%"
+          height="100%"
+          transition="opacity 0.5s"
+        />
+      </Box>
 
     </Box>
     </Box>
