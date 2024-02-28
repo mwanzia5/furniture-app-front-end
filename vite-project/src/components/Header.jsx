@@ -1,10 +1,4 @@
 
-// import React, { useState, useEffect } from 'react';
-// import { Box, Flex, Text, Link, Image, HStack, useColorMode, IconButton } from '@chakra-ui/react'; 
-// import { MoonIcon, SunIcon } from '@chakra-ui/icons';
-// import Order from '../pages/checkout'; 
-// import Item from '../pages/Products';
-
 import React, { useState, useEffect, useContext } from "react";
 import {
   Box,
@@ -54,6 +48,7 @@ const Header = () => {
       <Text fontSize="2xl" fontWeight="bold" textAlign="center">
         Furniture Garden
       </Text>
+      
       {/* Dark mode and Profile icon */}
       <Flex alignItems="center">
         <IconButton
@@ -62,6 +57,7 @@ const Header = () => {
           aria-label="Toggle Dark Mode"
           variant="ghost"
         />
+
         <div>
           <HStack spacing="4" justify="center" mt="2">
             <Link href="/Home">HOME</Link>
@@ -83,8 +79,32 @@ const Header = () => {
             )}
           </HStack>
         </div>
+
       </Flex>
       </Flex>
+      
+      <div>
+        <HStack spacing="4" justify="center" mt="2">
+          <Link href="/Home">HOME</Link>
+          <Link href="/products">PRODUCTS</Link>
+          <Link href="/checkout">CART</Link> 
+          <Link href="/signup">SIGNUP</Link>
+          
+          {isAuthenticated ? (
+            <>
+             <Link to="/profile"><Avatar src='https://bit.ly/broken-link' /></Link>
+              <Link onClick={logout}>Logout</Link>
+            </>
+          ) : (
+            <Link href="/login">SIGN IN</Link>
+          )}
+          <Link href="/AdminPage">ADMIN</Link>
+          <Link href="/review">REVIEWS</Link>
+          
+        </HStack>
+      </div>
+
+
       <Box position="relative" overflow="hidden" height="600px">
         <Image
           src={images[currentImageIndex]}
@@ -94,10 +114,11 @@ const Header = () => {
           height="100%"
           transition="opacity 0.5s"
         />
-
       </Box>
 
     </Box>
+
+   
   
   
   );

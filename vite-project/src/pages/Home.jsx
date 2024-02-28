@@ -1,6 +1,6 @@
 import React, { useState, useEffect } from 'react';
 import { api } from "../utils/utils";
-import { Box, Grid, Text, Button, Image, AspectRatio } from '@chakra-ui/react';
+import { Box, Grid, Text, Button, Image, AspectRatio,Link } from '@chakra-ui/react';
 
 const Home = () => {
     const [categories, setCategories] = useState([]);
@@ -31,7 +31,7 @@ const Home = () => {
                             </AspectRatio>
                             <Box p="6">
                                 <Text fontWeight="bold" fontSize="xl" mb="2">{category.name}</Text>
-                                <Button colorScheme="blue" size="sm">View</Button>
+                                <Button colorScheme="blue" size="sm"><Link href="/products">PRODUCTS</Link></Button>
                             </Box>
                         </Box>
                     ))}

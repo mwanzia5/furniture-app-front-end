@@ -1,3 +1,4 @@
+
 // import React, { useState } from 'react';
 
 // function OrderButton() {
@@ -24,6 +25,9 @@
 //             console.log('Order created successfully:', data);
 //             setLoading(false);
 //             setError(null);
+
+
+
             
 //         })
 //         .catch(error => {
@@ -287,5 +291,47 @@
 
 
 
+
+
+
+// const container = {
+//     display: 'flex',
+//     justifyContent: 'center',
+//     alignItems: 'center',
+//     height: '100vh',
+// };
+
+// const card = {
+//     padding: '20px',
+//     border: '1px solid #ccc',
+//     borderRadius: '8px',
+//     maxWidth: '400px',
+//     width: '100%',
+// };
+
+// const formGroupStyle = {
+//     marginBottom: '15px',
+// };
+
+// const inputStyle = {
+//     width: '100%',
+//     padding: '8px',
+//     border: '1px solid #ccc',
+//     borderRadius: '4px',
+//     boxSizing: 'border-box',
+// };
+
+// const buttonStyle = {
+//     width: '100%',
+//     padding: '10px',
+//     backgroundColor: '#007bff',
+//     color: '#fff',
+//     border: 'none',
+//     borderRadius: '4px',
+//     cursor: 'pointer',
+//     fontSize: '16px',
+// };
+
+// export default Order;
 
 
