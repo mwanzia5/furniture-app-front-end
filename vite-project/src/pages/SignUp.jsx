@@ -12,15 +12,14 @@ import {
 import { FormControl, FormErrorMessage, useToast } from "@chakra-ui/react";
 import { useFormik } from "formik";
 import * as Yup from "yup";
-import { api } from "../assets/utils";
+import { api } from "../utils/utils";
 import { useNavigate } from "react-router-dom";
-import { AuthContext } from "../components/Auth";
 
 function SignupForm() {
   // const [showModal, setShowModal] = useState(true);
   const navigate = useNavigate();
   // const { setIsAuthenticated } = useContext(AuthContext);
-  const toast = useToast();
+  //const toast = useToast();
 
   const formik = useFormik({
     initialValues: {
@@ -44,7 +43,7 @@ function SignupForm() {
 
     onSubmit: async (values, { resetForm }) => {
       try {
-        const res = await api.post("users", values);
+        const res = await api.post("users", {...values, role:"member"});
         console.log(res);
         toast.success(res.data.message);
         resetForm();
@@ -64,6 +63,7 @@ function SignupForm() {
   return (
     <Box bg="white" w="50%" p={8} borderRadius="lg">
       <form autoComplete="off" onSubmit={formik.handleSubmit}>
+      < Toaster position="top-right"/>
         <FormControl
           isInvalid={formik.touched.username && formik.errors.username}
           mb={5}
