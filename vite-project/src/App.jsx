@@ -1,5 +1,3 @@
-
-
 import React from "react";
 import { BrowserRouter as Router, Routes, Route } from "react-router-dom";
 import Footer from "./components/Footer";
@@ -9,6 +7,7 @@ import RefundPolicy from "./pages/RefundPolicy";
 import ShippingPolicy from "./pages/ShippingPolicy";
 import Header from "./components/Header";
 import Items from "./pages/products";
+import  AdminProductManagement from "./pages/AdminPage";
 import SignupForm from "./pages/SignUp";
 import Order from "./pages/checkout";
 import ReviewList from "./pages/review";
@@ -16,13 +15,9 @@ import Profile from "./pages/Profile";
 import Home from "./pages/Home";
 import SignIn from "./pages/SignIn";
 
-;
-
-
-
-
 const App = () => {
   return (
+
 
     <Router>
       <Header />
@@ -34,6 +29,7 @@ const App = () => {
         <Route path="/signin" element={<SignIn />} />
         <Route path="/checkout" element={<Order />} />
         <Route path="/review" element={<ReviewList />} />
+        <Route path="/AdminPage" element={<AdminProductManagement />}  />
 
         <Route exact path="/AboutUs" element={<AboutUs />} />
         <Route exact path="/FAQ" element={<FAQ />} />

@@ -1,10 +1,4 @@
 
-// import React, { useState, useEffect } from 'react';
-// import { Box, Flex, Text, Link, Image, HStack, useColorMode, IconButton } from '@chakra-ui/react'; 
-// import { MoonIcon, SunIcon } from '@chakra-ui/icons';
-// import Order from '../pages/checkout'; 
-// import Item from '../pages/Products';
-
 import React, { useState, useEffect, useContext } from "react";
 import {
   Box,
@@ -62,41 +56,39 @@ const Header = () => {
           aria-label="Toggle Dark Mode"
           variant="ghost"
         />
-        <div>
-          <HStack spacing="4" justify="center" mt="2">
-            <Link href="/Home">HOME</Link>
-            <Link href="/products">PRODUCTS</Link>
-            <Link href="/checkout">CART</Link>
-            <Link href="/signup">SIGN UP</Link>
-            <Link href="/review">REVIEWS</Link>
-            
 
-            {isAuthenticated ? (
-              <>
-                <Link href="/profile">
-                  <Avatar src="https://bit.ly/broken-link" />
-                  </Link>
-                <Link onClick={logout}>Logout</Link>
-              </>
-            ) : (
-              <Link href="/signin">SIGN IN</Link>
-            )}
-          </HStack>
-        </div>
+      
       </Flex>
-      </Flex>
-      <Box position="relative" overflow="hidden" height="600px">
-        <Image
-          src={images[currentImageIndex]}
-          alt={`Image ${currentImageIndex + 1}`}
-          objectFit="cover"
-          width="100%"
-          height="100%"
-          transition="opacity 0.5s"
-        />
+    </Flex>
+    <div>
+      <HStack spacing="4" justify="center" mt="2">
+        <Link href="/Home">HOME</Link>
+        <Link href="/products">PRODUCTS</Link>
+        <Link href="/checkout">CART</Link> 
+        <Link href="/AdminPage">admin</Link> 
+        <Link href="/signup">SIGNUP</Link>
+        {isAuthenticated ? (
+          <>
+            <Link to="/profile"><Avatar src='https://bit.ly/broken-link' /></Link>
+            <Link onClick={logout}>Logout</Link>
+          </>
+        ) : (
+          <Link href="/login">SIGN IN</Link>
+        )}
+        <Link href="/review">REVIEWS</Link>
+      </HStack>
+    </div>
+    <Box position="relative" overflow="hidden" height="600px">
+      <Image
+        src={images[currentImageIndex]}
+        alt={`Image ${currentImageIndex + 1}`}
+        objectFit="cover"
+        width="100%"
+        height="100%"
+        transition="opacity 0.5s"
+      />
 
-      </Box>
-
+    </Box>
     </Box>
   
   
