@@ -10,7 +10,7 @@ export const api = axios.create({
       baseURL: BASE_URL,
       responseType: "json",
       headers: {
-        Authorization: `Bearer ${localStorage.getItem("token")}`, // Include the JWT token in the request headers
+        Authorization: `Bearer ${localStorage.getItem("token")}`, 
       },
     });    
     

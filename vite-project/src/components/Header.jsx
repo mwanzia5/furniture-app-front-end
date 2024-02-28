@@ -1,3 +1,4 @@
+
 import React, { useState, useEffect, useContext } from "react";
 import {
   Box,
@@ -8,14 +9,17 @@ import {
   HStack,
   useColorMode,
   IconButton,
-  Avatar
+  Avatar,
 } from "@chakra-ui/react";
 import { MoonIcon, SunIcon } from "@chakra-ui/icons";
 import { AuthContext } from "./Auth";
 import { CgProfile } from "react-icons/cg";
 
+
 const Header = () => {
-  const { isAuthenticated, logout } = useContext(AuthContext);
+  const { isAuthenticated, logout, user } = useContext(AuthContext);
+  //console.log(user)
+
   const images = [
     "https://hips.hearstapps.com/hmg-prod/images/ghk070123homeminifeature-005-655b983d8bf5f.jpg?crop=1xw:0.9989583333333334xh;center,top&resize=980:*",
     "https://www.interior-essentials.com/wp-content/uploads/2021/07/InteriorEssentialsRoleOfFurnitureInteriorDesign.jpg",
@@ -52,6 +56,7 @@ const Header = () => {
           aria-label="Toggle Dark Mode"
           variant="ghost"
         />
+
       
       </Flex>
     </Flex>
@@ -82,8 +87,10 @@ const Header = () => {
         height="100%"
         transition="opacity 0.5s"
       />
+
     </Box>
-  </Box>
+    </Box>
+  
   
   );
 };

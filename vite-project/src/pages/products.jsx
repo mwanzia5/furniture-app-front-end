@@ -48,6 +48,7 @@ const Items = ({ addToCart }) => { // Accept addToCart prop
             overflow="hidden"
             _hover={{ boxShadow: "xl" }}
           >
+
             <AspectRatio ratio={4 / 3}>
               <Image src={product.image_url} borderRadius="lg" />
             </AspectRatio>
@@ -70,6 +71,7 @@ const Items = ({ addToCart }) => { // Accept addToCart prop
                   </AccordionItem>
                 </Accordion>
               </Box>
+
               <Text color="blue.600" fontSize="2xl" fontWeight="bold">
                 $ {product.price}
               </Text>

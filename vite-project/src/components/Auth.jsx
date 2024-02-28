@@ -9,11 +9,11 @@ export const AuthContext = createContext({
   setIsAuthenticated: () => null,
   logout: () => null,
 });
-
 // AuthProvider component
 export const AuthProvider = ({ children }) => {
   const [isAuthenticated, setIsAuthenticated] = useState(false);
   const [user, setUser] = useState(null);
+  const [credentials, setCredentials] = useState(null);
 
   const logout = () => {
     localStorage.removeItem("session");
@@ -23,47 +23,42 @@ export const AuthProvider = ({ children }) => {
   useEffect(() => {
     try {
       // Get the session data from localStorage
-      const session = JSON.parse(localStorage.getItem("session"));
-
+     console.log(credentials)
       // Check if the session is present and the refresh_token is a string
-      if (session && typeof session.refresh_token === "string") {
-        // Decode the JWT token
+      if (credentials) {
+        localStorage.setItem("session", credentials)
+        const session = JSON.parse(localStorage.getItem("session"))
+        //console.log(session);
+       
         const decoded = jwtDecode(session.refresh_token);
-
-        // Check if the decoded token has an 'exp' property
         if (decoded && decoded.exp) {
-          // Check if the token is still valid based on its expiration time
           const expiry = dayjs(decoded.exp * 1000);
           const isValid = dayjs().isBefore(expiry);
+          console.log(isValid)
 
           if (isValid) {
-            // Set the user and mark as authenticated
-            setUser(session.user);
             setIsAuthenticated(true);
-          } else {
-            // Token is expired, perform logout
-            logout();
-          }
-        } else {
-          // Token doesn't have 'exp' property, handle gracefully
-          console.error("Invalid token: Missing 'exp' property");
-          logout();
+          } 
         }
-      } else {
-        // session or refresh_token is not in the expected format, handle gracefully
+       else {
         console.error("Invalid session or refresh_token");
-        logout();
+        //logout();
       }
-    } catch (error) {
-      // Handle any other decoding errors gracefully
-      console.error("Error decoding token", error);
-      logout();
-    }
-  }, []);
+    } 
+  
+  }
+  catch (error) {
+    // Handle any other decoding errors gracefully
+    console.error("Error decoding token", error);
+   // logout();
+  }
+}, [credentials]);
+
+
 
   return (
-    <AuthContext.Provider value={{ isAuthenticated, setIsAuthenticated, logout, user }}>
+    <AuthContext.Provider value={{ isAuthenticated, setIsAuthenticated, logout, setUser, user, setCredentials }}>
       {children}
     </AuthContext.Provider>
   );
-};
+};[[]]
