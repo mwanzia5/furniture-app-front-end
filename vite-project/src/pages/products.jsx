@@ -1,6 +1,5 @@
 import React, { useEffect, useState } from "react";
 import { api } from "../utils/utils";
-import { Link } from 'react-router-dom';
 import Order from "./checkout";
 import {
  Image,

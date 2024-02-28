@@ -12,9 +12,9 @@ import Items from "./pages/products";
 import SignupForm from "./pages/SignUp";
 import Order from "./pages/checkout";
 import ReviewList from "./pages/review";
-import SignIn from "./pages/signin";
 import Profile from "./pages/Profile";
 import Home from "./pages/Home";
+import SignIn from "./pages/SignIn";
 
 ;
 
