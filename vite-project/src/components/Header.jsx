@@ -1,9 +1,9 @@
 
-import React, { useState, useEffect } from 'react';
-import { Box, Flex, Text, Link, Image, HStack, useColorMode, IconButton } from '@chakra-ui/react'; 
-import { MoonIcon, SunIcon } from '@chakra-ui/icons';
-import Order from '../pages/checkout'; 
-import Item from '../pages/Products';
+// import React, { useState, useEffect } from 'react';
+// import { Box, Flex, Text, Link, Image, HStack, useColorMode, IconButton } from '@chakra-ui/react'; 
+// import { MoonIcon, SunIcon } from '@chakra-ui/icons';
+// import Order from '../pages/checkout'; 
+// import Item from '../pages/Products';
 
 import React, { useState, useEffect, useContext } from "react";
 import {

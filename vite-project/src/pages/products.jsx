@@ -1,5 +1,7 @@
 import React, { useEffect, useState } from "react";
 import { api } from "../utils/utils";
+import { Link } from 'react-router-dom';
+import Order from "./checkout";
 import {
  Image,
  Stack,
@@ -96,14 +98,16 @@ const Items = () => {
              <Text color="blue.600" fontSize="2xl" fontWeight="bold">
                $ {product.price}
              </Text>
-             <Button
-               variant="solid"
-               colorScheme="blue"
-               mt="2"
-               _hover={{ bg: "blue.600" }}
-             >
-               Add to cart
-             </Button>
+             <Link to="/checkout">
+  <Button
+    variant="solid"
+    colorScheme="blue"
+    mt="2"
+    _hover={{ bg: "blue.600" }}
+  >
+    order
+  </Button>
+</Link>
            </Stack>
            <Divider />
          </Box>

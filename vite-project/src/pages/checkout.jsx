@@ -1,66 +1,49 @@
-import React from 'react';
-import { api } from "../utils/utils";
+import React, { useState } from 'react';
 
-function Order() {
-    const handleSendEmail = async () => {
-        try {
-           
-            const userDetails = {
-                username: 'John Doe',
-                email: 'john@example.com'
-            };
+function OrderButton() {
+    const [loading, setLoading] = useState(false);
+    const [error, setError] = useState(null);
 
-            const productDetails = {
-                title: 'Product A',
-                description: 'Description of Product A',
-                price: 100
-            };
-
-           
-            const emailBody = `
-                Invoice Details:
-
-                Order ID: ${order.id}
-                Status: ${order.status}
-                Order Date: ${new Date().toLocaleString()}
-
-                User Details:
-                Username: ${userDetails.username}
-                Email: ${userDetails.email}
-
-                Product Details:
-                Product Name: ${productDetails.title}
-                Description: ${productDetails.description}
-                Price: $${productDetails.price}
-            `;
-
-          
-            const emailResponse = await api.post('/send-email', {
-                email: userDetails.email,
-                subject: 'Invoice for Your Order',
-                body: emailBody
-            });
-
-            if (emailResponse.status === 200) {
-                console.log("Email sent successfully");
-            } else {
-                console.error("Failed to send email");
+    const handleOrder = () => {
+        setLoading(true);
+        fetch('/api/orders', {
+            method: 'POST',
+            headers: {
+                'Content-Type': 'application/json',
+                'Authorization': `Bearer ${localStorage.getItem('accessToken')}`
+            },
+            body: JSON.stringify({})
+        })
+        .then(response => {
+            if (!response.ok) {
+                throw new Error('Failed to create order');
             }
-        } catch (error) {
-            console.error('Error sending email:', error);
-        }
+            return response.json();
+        })
+        .then(data => {
+            console.log('Order created successfully:', data);
+            setLoading(false);
+            setError(null);
+            
+        })
+        .catch(error => {
+            console.error('Error creating order:', error.message);
+            setLoading(false);
+            setError('Failed to create order..');
+        });
     };
 
     return (
-        <div style={container}>
-            <div style={card}>
-                <h1>Order and Email</h1>
-                <button onClick={handleSendEmail} style={buttonStyle}>Send Email</button>
-            </div>
+        <div>
+            <button onClick={handleOrder} disabled={loading}>
+                {loading ? 'Processing...' : 'Order Now'}
+            </button>
+            {error && <p>{error}</p>}
         </div>
     );
 }
-export default Order
+
+export default OrderButton;
 
 
 
