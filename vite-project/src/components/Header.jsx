@@ -19,10 +19,13 @@ import {
 } from "@chakra-ui/react";
 import { MoonIcon, SunIcon } from "@chakra-ui/icons";
 import { AuthContext } from "./Auth";
+import { CgProfile } from "react-icons/cg";
 
 
 const Header = () => {
-  const { isAuthenticated, logout } = useContext(AuthContext);
+  const { isAuthenticated, logout, user } = useContext(AuthContext);
+  //console.log(user)
+
   const images = [
     "https://hips.hearstapps.com/hmg-prod/images/ghk070123homeminifeature-005-655b983d8bf5f.jpg?crop=1xw:0.9989583333333334xh;center,top&resize=980:*",
     "https://www.interior-essentials.com/wp-content/uploads/2021/07/InteriorEssentialsRoleOfFurnitureInteriorDesign.jpg",
@@ -47,17 +50,40 @@ const Header = () => {
   }, []);
   return (
     <Box>
-      <Flex p="4" alignItems="center" justifyContent="space-between">
-        <Text fontSize="2xl" fontWeight="bold" textAlign="center">
-          Furniture Garden
-        </Text>
-        {/* Dark mode  */}
+    {/* <Flex p="4" alignItems="center" justifyContent="space-between"> */}
+      <Text fontSize="2xl" fontWeight="bold" textAlign="center">
+        Furniture Garden
+      </Text>
+      {/* Dark mode and Profile icon */}
+      <Flex alignItems="center">
         <IconButton
           icon={colorMode === "dark" ? <SunIcon /> : <MoonIcon />}
           onClick={toggleColorMode}
           aria-label="Toggle Dark Mode"
           variant="ghost"
         />
+        <div>
+          <HStack spacing="4" justify="center" mt="2">
+            <Link href="/Home">HOME</Link>
+            <Link href="/products">PRODUCTS</Link>
+            <Link href="/checkout">CART</Link>
+            <Link href="/signup">SIGN UP</Link>
+            <Link href="/review">REVIEWS</Link>
+            
+
+            {isAuthenticated ? (
+              <>
+                <Link href="/profile"></Link>
+                  <Avatar src="https://bit.ly/broken-link" />
+                  <Link href="/pr">USERPROFILE</Link>
+                
+                <Link onClick={logout}>Logout</Link>
+              </>
+            ) : (
+              <Link href="/login">SIGN IN</Link>
+            )}
+          </HStack>
+        </div>
       </Flex>
       <Box position="relative" overflow="hidden" height="600px">
         <Image
@@ -68,6 +94,7 @@ const Header = () => {
           height="100%"
           transition="opacity 0.5s"
         />
+<
       </Box>
       <div>
         <HStack spacing="4" justify="center" mt="2">
@@ -96,7 +123,10 @@ const Header = () => {
         </HStack>
       </div>
 
+
     </Box>
+  </Box>
+  
   );
 };
 

@@ -18,6 +18,7 @@ import {
  AccordionPanel,
  AccordionIcon,
  AspectRatio,
+ Link
 } from "@chakra-ui/react";
 
 import SearchBar from "../components/SearchBar";
@@ -98,6 +99,7 @@ const Items = () => {
              <Text color="blue.600" fontSize="2xl" fontWeight="bold">
                $ {product.price}
              </Text>
+
              <Link to="/checkout">
   <Button
     variant="solid"
@@ -108,6 +110,7 @@ const Items = () => {
     order
   </Button>
 </Link>
+
            </Stack>
            <Divider />
          </Box>
