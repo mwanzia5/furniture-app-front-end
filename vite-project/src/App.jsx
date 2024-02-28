@@ -11,7 +11,7 @@ import Home from './pages/Home';
 import Items from "./pages/products";
 import  AdminProductManagement from "./pages/AdminPage";
 import SignupForm from "./pages/SignUp";
-import Order from "./pages/checkout";
+// import Order from "./pages/checkout";
 import ReviewList from "./pages/review";
 import Profile from "./pages/Profile";
 // import Home from "./pages/Home";
@@ -28,8 +28,10 @@ const App = () => {
         <Route path="/products" element={<Items />} />
         <Route path="/signup" element={<SignupForm />} />
         <Route path="/profile" element={<Profile/>} />
-        <Route path="/Signin" element={<SignIn />} />
-        <Route path="/checkout" element={<Order />} />
+<
+        <Route path="/signin" element={<SignIn />} />
+        {/* <Route path="/checkout" element={<Order />} /> */}
+
         <Route path="/review" element={<ReviewList />} />
         <Route path="/AdminPage" element={<AdminProductManagement />}  />
 

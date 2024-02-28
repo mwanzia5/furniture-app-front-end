@@ -57,6 +57,29 @@ const Header = () => {
           aria-label="Toggle Dark Mode"
           variant="ghost"
         />
+
+        <div>
+          <HStack spacing="4" justify="center" mt="2">
+            <Link href="/Home">HOME</Link>
+            <Link href="/products">PRODUCTS</Link>
+            {/* <Link href="/checkout">CART</Link> */}
+            <Link href="/signup">SIGN UP</Link>
+            <Link href="/review">REVIEWS</Link>
+            
+
+            {isAuthenticated ? (
+              <>
+                <Link href="/profile">
+                  <Avatar src="https://bit.ly/broken-link" />
+                  </Link>
+                <Link onClick={logout}>Logout</Link>
+              </>
+            ) : (
+              <Link href="/signin">SIGN IN</Link>
+            )}
+          </HStack>
+        </div>
+
       </Flex>
       </Flex>
       
