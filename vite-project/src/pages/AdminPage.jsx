@@ -7,13 +7,10 @@ import {
   FormLabel,
   Heading,
   Grid,
-  List,
-  ListItem,
   Accordion,
   AccordionItem,
   AccordionButton,
-  AccordionPanel,
-  Divider,
+  AccordionPanel
 } from "@chakra-ui/react";
 import { api } from "../utils/utils";
 

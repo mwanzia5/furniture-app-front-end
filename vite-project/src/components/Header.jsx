@@ -48,6 +48,7 @@ const Header = () => {
       <Text fontSize="2xl" fontWeight="bold" textAlign="center">
         Furniture Garden
       </Text>
+      
       {/* Dark mode and Profile icon */}
       <Flex alignItems="center">
         <IconButton
@@ -57,13 +58,14 @@ const Header = () => {
           variant="ghost"
         />
       </Flex>
+      </Flex>
       
       <div>
         <HStack spacing="4" justify="center" mt="2">
           <Link href="/Home">HOME</Link>
           <Link href="/products">PRODUCTS</Link>
-          <Link href="/#">CART</Link> 
-          <Link href="/signup"></Link>
+          <Link href="/checkout">CART</Link> 
+          <Link href="/signup">SIGNUP</Link>
           
           {isAuthenticated ? (
             <>
@@ -73,9 +75,9 @@ const Header = () => {
           ) : (
             <Link href="/login">SIGN IN</Link>
           )}
-          <Link href="/#">CART</Link>
+          <Link href="/AdminPage">ADMIN</Link>
           <Link href="/review">REVIEWS</Link>
-          <Link href="/#">SIGN IN</Link>
+          
         </HStack>
       </div>
 
@@ -92,7 +94,8 @@ const Header = () => {
       </Box>
 
     </Box>
-    </Box>
+
+   
   
   
   );
