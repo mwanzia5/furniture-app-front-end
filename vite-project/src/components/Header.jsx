@@ -48,6 +48,7 @@ const Header = () => {
       <Text fontSize="2xl" fontWeight="bold" textAlign="center">
         Furniture Garden
       </Text>
+      </Flex>
       {/* Dark mode and Profile icon */}
       <Flex alignItems="center">
         <IconButton
@@ -92,7 +93,8 @@ const Header = () => {
       </Box>
 
     </Box>
-    </Box>
+
+   
   
   
   );
