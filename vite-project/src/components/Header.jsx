@@ -52,7 +52,7 @@ const Header = () => {
           aria-label="Toggle Dark Mode"
           variant="ghost"
         />
-        <Link href="/profile" style={{ marginLeft: "8px" }}><CgProfile /></Link>
+      
       </Flex>
     </Flex>
     <div>
@@ -60,6 +60,7 @@ const Header = () => {
         <Link href="/Home">HOME</Link>
         <Link href="/products">PRODUCTS</Link>
         <Link href="/checkout">CART</Link> 
+        <Link href="/AdminPage">admin</Link> 
         <Link href="/signup">SIGNUP</Link>
         {isAuthenticated ? (
           <>
