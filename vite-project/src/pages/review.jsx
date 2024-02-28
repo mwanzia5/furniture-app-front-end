@@ -15,7 +15,7 @@ const Review = () => {
 
   const fetchReviews = async () => {
     try {
-      const response = await api.get("/review");
+      const response = await api.get("/reviews");
       setReviews(response.data);
     } catch (error) {
       console.error("Error fetching reviews:", error);
@@ -26,7 +26,7 @@ const Review = () => {
     e.preventDefault();
     try {
       // Post review to backend
-      const response = await api.post("/review", {
+      const response = await api.post("/reviews", {
         text,
         rating: parseInt(rating),
       });

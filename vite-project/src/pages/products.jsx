@@ -9,7 +9,7 @@ const Items = ({ addToCart }) => { // Accept addToCart prop
 
   const fetchProducts = async () => {
     try {
-      const response = await api.get("/product");
+      const response = await api.get("/products");
       setProducts(response.data);
     } catch (error) {
       console.error("Error fetching products", error);
@@ -81,7 +81,7 @@ const Items = ({ addToCart }) => { // Accept addToCart prop
                 colorScheme="blue"
                 mt="2"
                 _hover={{ bg: "blue.600" }}
-                onClick={() => addToCart(product)} // Call addToCart function with product
+                
               >
                 CART
               </Button>
