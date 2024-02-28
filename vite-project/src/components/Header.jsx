@@ -42,7 +42,7 @@ const Header = () => {
   }, []);
   return (
     <Box>
-    {/* <Flex p="4" alignItems="center" justifyContent="space-between"> */}
+    <Flex p="4" alignItems="center" justifyContent="space-between">
       <Text fontSize="2xl" fontWeight="bold" textAlign="center">
         Furniture Garden
       </Text>
@@ -65,17 +65,17 @@ const Header = () => {
 
             {isAuthenticated ? (
               <>
-                <Link href="/profile"></Link>
+                <Link href="/profile">
                   <Avatar src="https://bit.ly/broken-link" />
-                  <Link href="/pr">USERPROFILE</Link>
-                
+                  </Link>
                 <Link onClick={logout}>Logout</Link>
               </>
             ) : (
-              <Link href="/login">SIGN IN</Link>
+              <Link href="/signin">SIGN IN</Link>
             )}
           </HStack>
         </div>
+      </Flex>
       </Flex>
       <Box position="relative" overflow="hidden" height="600px">
         <Image
