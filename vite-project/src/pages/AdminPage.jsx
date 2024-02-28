@@ -30,7 +30,7 @@ const AdminProductManagement = () => {
 
   const fetchProducts = async () => {
     try {
-      const response = await api.get('/product');
+      const response = await api.get('/products');
       setProducts(response.data);
     } catch (error) {
       console.error('Error fetching products:', error);
@@ -60,14 +60,14 @@ const AdminProductManagement = () => {
     }
   };
 
-//   const handleEditProduct = async (id, newData) => {
-//     try {
-//       await api.put(`/product/${id}`, newData, { headers: { 'Content-Type': 'application/json' } });
-//       fetchProducts();
-//     } catch (error) {
-//       console.error('Error updating product:', error);
-//     }
-//   };
+  // const handleEditProduct = async (id, newData) => {
+  //   try {
+  //     await api.put(`/product/${id}`, newData, { headers: { 'Content-Type': 'application/json' } });
+  //     fetchProducts();
+  //   } catch (error) {
+  //     console.error('Error updating product:', error);
+  //   }
+  // };
 
   const handleDeleteProduct = async (id) => {
     try {
