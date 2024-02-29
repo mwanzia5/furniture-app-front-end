@@ -8,16 +8,12 @@ import ShippingPolicy from './pages/ShippingPolicy';
 import Header from './components/Header';
 import Home from './pages/Home';
 import Items from "./pages/products";
-
-
-
 import SignIn from './pages/SignIn';
 import SignupForm from "./pages/SignUp";
-import Profile from "./pages/profile";
+import Profile from "./pages/Profile";
 import Order from "./pages/checkout";
-
 import ReviewList from "./pages/review";
-;
+
 
 
 
@@ -31,13 +27,10 @@ const App = () => {
           <Header />
           <Routes>
             <Route path="/Home" element={<Home />} />
-
             <Route path="/Products" element={<Items/>} />
-
             <Route path="/login" element={<SignIn />} />
             <Route path="/signup" element={<SignupForm />} />
             <Route path="/profile" element={<Profile />}  />
-            <Route path="/signin" element={<signIn />}  />
             <Route path="/checkout" element={<Order />}  />
             <Route path="/review" element={<ReviewList />} />
           </Routes>

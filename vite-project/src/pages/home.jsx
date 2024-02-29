@@ -1,6 +1,7 @@
 import React, { useState, useEffect } from 'react';
 import { api } from "../utils/utils";
-import { Box, Grid, Text, Button, Image, AspectRatio } from '@chakra-ui/react';
+import { Box, Grid, Text, Button, Image, AspectRatio, Link } from '@chakra-ui/react';
+import { Heading } from '@chakra-ui/react'
 
 const Home = () => {
     const [categories, setCategories] = useState([]);
@@ -17,24 +18,23 @@ const Home = () => {
     useEffect(() => {
         fetchCategories();
     }, []);
-// Navigate to the products page
-    const handleViewProducts = () => {
-        window.location.href = '/Products'; 
-    };
 
     return (
         <div>
-            <Box p="4">
-                <h1>Home</h1>
-                <Grid templateColumns="repeat(auto-fill, minmax(250px, 1fr))" gap={4}>
+            <Box p="8">
+            <Heading> Our Collection</Heading>
+                <Text fontSize="xx-large" mb="4"></Text>
+                <Grid templateColumns="repeat(auto-fill, minmax(250px, 1fr))" gap={4} sx={{ display: 'flex', flexWrap: 'wrap' }}>
                     {categories.map(category => (
-                        <Box key={category.id} borderWidth="1px" borderRadius="lg" overflow="hidden">
-                            <AspectRatio ratio={4 / 3}>
-                                <Image src={category.image_url} objectFit="cover"/>
+                        <Box key={category.id} borderWidth="1px" borderRadius="lg" overflow="hidden" sx={{ flex: '1 0 250px', minWidth: '250px' }}>
+                            <AspectRatio ratio={6 / 3}>
+                                <Image src={category.image_url} objectFit="cover" />
                             </AspectRatio>
                             <Box p="6">
-                                <Text fontWeight="bold" fontSize="xl" mb="2">{category.name}</Text>
-                                <Button colorScheme="blue" size="sm" onClick={handleViewProducts}>View</Button>
+                                <Link href="/products" textDecoration="none">
+                                    <Text fontWeight="bold" fontSize="xl" mb="2">{category.name}</Text>
+                                </Link>
+
                             </Box>
                         </Box>
                     ))}
