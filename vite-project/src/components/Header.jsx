@@ -58,27 +58,6 @@ const Header = () => {
           variant="ghost"
         />
 
-        <div>
-          <HStack spacing="4" justify="center" mt="2">
-            <Link href="/Home">HOME</Link>
-            <Link href="/products">PRODUCTS</Link>
-            {/* <Link href="/checkout">CART</Link> */}
-            <Link href="/signup">SIGN UP</Link>
-            <Link href="/review">REVIEWS</Link>
-            
-
-            {isAuthenticated ? (
-              <>
-                <Link href="/profile">
-                  <Avatar src="https://bit.ly/broken-link" />
-                  </Link>
-                <Link onClick={logout}>Logout</Link>
-              </>
-            ) : (
-              <Link href="/signin">SIGN IN</Link>
-            )}
-          </HStack>
-        </div>
 
       </Flex>
       </Flex>
@@ -89,17 +68,19 @@ const Header = () => {
           <Link href="/products">PRODUCTS</Link>
           <Link href="/checkout">CART</Link> 
           <Link href="/signup">SIGNUP</Link>
+          <Link href="/review">REVIEWS</Link>
           
           {isAuthenticated ? (
             <>
-             <Link to="/profile"><Avatar src='https://bit.ly/broken-link' /></Link>
-              <Link onClick={logout}>Logout</Link>
+             <Link href="/profile"><Avatar src='https://bit.ly/broken-link' /></Link>
+             <Link href="/AdminPage">ADMIN</Link>
+             <Link href="/customers">All Customers</Link>
+            <Link onClick={logout}>Logout</Link>
             </>
           ) : (
-            <Link href="/login">SIGN IN</Link>
+            <Link href="/signin">SIGN IN</Link>
           )}
-          <Link href="/AdminPage">ADMIN</Link>
-          <Link href="/review">REVIEWS</Link>
+         
           
         </HStack>
       </div>

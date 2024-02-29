@@ -16,6 +16,7 @@ import ReviewList from "./pages/review";
 import Profile from "./pages/Profile";
 // import Home from "./pages/Home";
 import  SignIn from "./pages/SignIn";
+import Customers from './pages/Customer';
 
 const App = () => {
   return (
@@ -26,12 +27,10 @@ const App = () => {
       <Routes>
         <Route path="/Home" element={<Home />} />
         <Route path="/products" element={<Items />} />
-        <Route path="/signup" element={<SignupForm />} />
+        <Route path="/signup" element={<SignupForm/>} />
         <Route path="/profile" element={<Profile/>} />
-<
         <Route path="/signin" element={<SignIn />} />
-        {/* <Route path="/checkout" element={<Order />} /> */}
-
+        <Route path="/customers" element={<Customers />} />
         <Route path="/review" element={<ReviewList />} />
         <Route path="/AdminPage" element={<AdminProductManagement />}  />
 

@@ -29,15 +29,14 @@ function SignIn() {
         const data = await api.post("/login", values);
         console.log(data);
         toast.success(data.data.message);
-        setIsAuthenticated(true);
         setUser(data.data.user);
-        //setCredentials(JSON.stringify(data.data))
+       
 
         resetForm();
 
-        // localStorage.setItem("session", JSON.stringify(data.data));
-        // setIsAuthenticated(true);
+        localStorage.setItem("session", JSON.stringify(data.data));
         navigate("/Home");
+        setIsAuthenticated(true)
       } catch (error) {
         const data = error.response.data;
         toast.error(data.message);

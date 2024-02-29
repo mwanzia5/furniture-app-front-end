@@ -12,8 +12,10 @@ import {
 import { FormControl, FormErrorMessage, useToast } from "@chakra-ui/react";
 import { useFormik } from "formik";
 import * as Yup from "yup";
-import { api } from "../utils/utils";
+import toast, { Toaster } from 'react-hot-toast'
+
 import { useNavigate } from "react-router-dom";
+import { api } from '../utils/utils';
 
 function SignupForm() {
   // const [showModal, setShowModal] = useState(true);
@@ -53,7 +55,7 @@ function SignupForm() {
         setShowModal(false);
       } catch (error) {
         const errorMessage =
-          error.response?.data?.message || "Unable to sign up";
+          error.response?.data?.message
         console.log(errorMessage);
         toast.error(errorMessage);
       }

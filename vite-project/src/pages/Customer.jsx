@@ -1,4 +1,5 @@
-
+import React, { useContext, useEffect, useState } from 'react'
+import { EmailIcon, PhoneIcon, TimeIcon } from "@chakra-ui/icons";
 import {
   Grid,
   Box,
@@ -6,37 +7,30 @@ import {
   Text,
   Flex,
 } from "@chakra-ui/react";
-import { EmailIcon, PhoneIcon, TimeIcon } from "@chakra-ui/icons";
-import React, { useState, useEffect, useContext } from "react";
-import { api } from "../utils/utils";
-import { AuthContext } from "../components/Auth";
+import { AuthContext } from '../components/Auth';
+import { api } from '../utils/utils';
+function Customers() {
+const [customers, setCustomers ]= useState([])
+const { credentials } = useContext(AuthContext)
 
-const Profile = () => {
-  const [userData, setUserData] = useState([]);
-  const { credentials } = useContext(AuthContext)
-  // const [user, setUser] = useState(null)
-  //console.log(credentials)
-  const user = (credentials.user)
-  console.log(user.id)
-  //console.log(user)
+const user = credentials.user; 
+  
 
-  const fetchUserData = async () => {
-    try {
-      const response = await api.get(`/users/${user.id}`);
-        const data = response.data;
-        //const userProfile = Object.values(data)
-       
-        const userDataArray = [data];
-        setUserData(userDataArray);
-      
-    } catch (error) {
-      console.error("Error fetching user data:", error);
-    }
-  };
-
-  useEffect(() => {
-    fetchUserData();
-  }, []);
+  if (!user || user.role !== 'admin') {
+    console.error('User does not have permission to add a product.');
+    return;
+  }
+const fetchCustomers = async () => {
+  try {
+    const response = await api.get('/users')
+    setCustomers(response.data)
+  } catch (error) {
+    console.error(error)
+  }
+}
+useEffect(()=>{
+  fetchCustomers()
+}, [])
 
   return (
     <div>
@@ -48,10 +42,10 @@ const Profile = () => {
           fontWeight: "bold",
         }}
       >
-        Your profile
+        Active Customers
       </h1>
       <Grid gap={6} templateColumns="repeat(auto-fit, minmax(300px, 1fr))">
-        {userData.map((user) => (
+        {customers.map((user) => (
           <Box
             key={user.id}
             borderWidth="1px"
@@ -116,4 +110,5 @@ const Profile = () => {
   );
 };
 
-export default Profile;
+export default Customers;
+
